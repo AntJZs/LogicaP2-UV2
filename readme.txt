@@ -3,12 +3,15 @@
 ## Nota para los desarrolladores.
     
     1. Este proyecto al final lo hice compatible con versionado en git, por lo que
-    todos los nombres de los archivos tienen una marca verde, lo cual está en
-    "staging". Al final de que hagan los cambios pertinentes:
+    todos los nombres de los archivos que estan azules, quieren decir que fueron
+    modificados, si están verdes, es que fueron creados.
+    Si un archivo se guarda entran en "staging". No tienen que agregarlos después.
+    Al final de que hagan los cambios pertinentes:
         
-        Dan click derecho a ☕ FinalLógica [xxxxxx]
-        Van a la sección Git -> Commit.
-        Escriben brevemente los cambios que hicieron y le dan commit.
+        - Dan click derecho a ☕ FinalLógica [xxxxxx]
+        - Van a la sección Git -> Commit.
+        - Escriben brevemente los cambios que hicieron (en menos de 20 palabras)
+        y le dan commit.
 
     2. Los archivos los comentaremos en la parte superior. Después de que tenga-
     mos la "base que funciona", podemos documentar todo. El código va a estar en
@@ -37,3 +40,9 @@ finallógica               Paquete principal del proyecto.
       ||-> .Interfaz      Contiene los archivos de interfaz del programa.
       ||-> .Modelo        Contiene todas las operaciones del programa.
 
+
+## Clases
+
+###    Directivo
+
+    

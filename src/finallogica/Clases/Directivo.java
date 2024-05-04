@@ -6,8 +6,18 @@ package finallogica.Clases;
 
 /**
  *
- * @author gerso
+ * @author lpagc
+ * 
+ *  Atributos:
+ *      nombre  - Nombre del directivo, necesario para inicioSesion
+ *      codigo  - Codigo del directivo, necesario para inicioSesion
+ *      sesion  - Dice si la sesión de un directivo está activa,
+ *                igual que en Estudiante
+ * 
  */
 public class Directivo {
+    private String nombre;
+    private int codigo = 604802;
+    private boolean sesion = false;
     
 }
