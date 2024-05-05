@@ -9,19 +9,14 @@ import finallogica.Clases.Carrera;
 /**
  *
  * @author lpagc
- *  
- * 
- * 
+ *
  */
-public class Posgrado extends Carrera {
+public class Pregrado extends Carrera {
     private String nombre;
-    public enum tipo {MAESTRIA, ESPECIALIZACION}
-    tipo tipo_posgrado;
 
-    public Posgrado(String nombre, tipo tipo_posgrado, facultades facultades) {
+    public Pregrado(String nombre, facultades facultades) {
         super(facultades);
         this.nombre = nombre;
-        this.tipo_posgrado = tipo_posgrado;
     }
 
     public String getNombre() {
@@ -32,14 +27,9 @@ public class Posgrado extends Carrera {
         this.nombre = nombre;
     }
 
-    public tipo getTipo_posgrado() {
-        return tipo_posgrado;
-    }
-
-    public void setTipo_posgrado(tipo tipo_posgrado) {
-        this.tipo_posgrado = tipo_posgrado;
-    }
-
+    
+    
     
     
 }
+    
