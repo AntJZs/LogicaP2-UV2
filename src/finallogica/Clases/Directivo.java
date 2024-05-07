@@ -19,5 +19,22 @@ public class Directivo {
     private String nombre;
     private int codigo = 604802;
     private boolean sesion = false;
+
+    public Directivo(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public boolean isSesion() {
+        return sesion;
+    }
+
+    public void setSesion(boolean sesion) {
+        this.sesion = sesion;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+    
     
 }
