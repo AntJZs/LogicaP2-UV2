@@ -46,9 +46,11 @@ public class Graduando {
     // Investigar: Implementación de las fechas
     private int saber_pro;
 
-    public Graduando() {
-        
+    public Graduando(Estudiante estudiante) {
+        this.estudiante = estudiante;
     }
+
+     
     
     
     
