@@ -1,6 +1,7 @@
 package finallogica.Interfaz;
 
 import finallogica.Clases.Carrera;
+import finallogica.Clases.Directivo;
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
@@ -22,13 +23,17 @@ public class ClasePrincipal {
     public static LinkedList<Estudiante> estudiante = new LinkedList<>();
     public static LinkedList<Graduando> graduando = new LinkedList<>();
     public static ArrayList<TrabajoDeGrado> tg = new ArrayList<>();
-    
+    public static Directivo directivo = new Directivo("admin");
 
     
     
     public static void main(String[] args) {
-        // feat: se pueden agregar todas las carreras en un linkedList para evitar redundancias.
+        // Se agrega el directivo y el nombre de usuario del directivo
         
+        // El codigo va a ser siempre 604802 por conveniencia, luego se va a permitir cambiar.
+        
+        
+        // feat: se pueden agregar todas las carreras en un linkedList para evitar redundancias.
         // Agregar nuevos pregrados
         carrera.add(new Pregrado("Derecho", Pregrado.facultades.CIENCIAS_HUMANAS_ED));
         // Agregar nuevos posgrados

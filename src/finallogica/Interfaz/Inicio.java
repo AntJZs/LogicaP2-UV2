@@ -4,11 +4,14 @@
  */
 package finallogica.Interfaz;
 
+import finallogica.Modelo.InicioSesion;
+
 /**
  *
  * @author gerso
  */
 public class Inicio extends javax.swing.JFrame {
+    public int IdSesion;
 
     /**
      * Creates new form Inicio
@@ -144,7 +147,10 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_BtInformacionActionPerformed
 
     private void BtIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIngresarActionPerformed
-        // Se hace la operación de inicio de sesión...
+        // Se hace la operación de inicio de sesión... Especificada en pruebas.
+        IdSesion = InicioSesion.iniciarUsuario(TfNombre.getText(), TfCodigo.getText());
+        
+        
     }//GEN-LAST:event_BtIngresarActionPerformed
 
     /**

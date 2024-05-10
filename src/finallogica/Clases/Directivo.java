@@ -35,6 +35,10 @@ public class Directivo {
     public int getCodigo() {
         return codigo;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
     
     
 }
