@@ -11,7 +11,7 @@ import finallogica.Modelo.InicioSesion;
  * @author gerso
  */
 public class Inicio extends javax.swing.JFrame {
-    public int IdSesion;
+    public static int IdSesion;
 
     /**
      * Creates new form Inicio

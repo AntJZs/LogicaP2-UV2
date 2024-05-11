@@ -3,7 +3,6 @@
  */
 package finallogica.Modelo;
 
-import finallogica.Clases.Directivo;
 import finallogica.Clases.Estudiante;
 import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Interfaz.IngresoDirectivo;
