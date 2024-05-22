@@ -25,6 +25,7 @@ public class IngresoEstudiante extends javax.swing.JFrame {
     } else if (ClasePrincipal.estudiante.get(IdSesion).getEstado_graduacion().PENDIENTE == Estudiante.estado_graduacion.PENDIENTE) {
         BtSolicitud.setEnabled(false);
     }
+                
     }
     /**
      * This method is called from within the constructor to initialize the form.
