@@ -3,15 +3,19 @@
  */
 package finallogica.Interfaz.Modelos;
 
-import finallogica.Clases.Estudiante;
+import finallogica.Clases.Fijas.Posgrado;
 import java.util.LinkedList;
 import javax.swing.table.AbstractTableModel;
 
-public class Mod_Estudiante extends AbstractTableModel{
-    String [] cols = {"Código", "Nombre", "Apellido", "Tipo Documento", "Número Documento", "Número Teléfono", "Estado Matrícula", "Estado Graduación"};
-    LinkedList<Estudiante> rows = new LinkedList<>();
+/**
+ *
+ * @author AntJZ
+ */
+public class Mod_Pregrado extends AbstractTableModel {
+    String [] cols = {"Código", "Nombre", "Facultad"};
+    LinkedList<Posgrado> rows = new LinkedList<>();
 
-    public Mod_Estudiante (LinkedList<Estudiante> rows) {
+    public Mod_Pregrado (LinkedList<Posgrado> rows) {
         this.rows = rows;
     }
     

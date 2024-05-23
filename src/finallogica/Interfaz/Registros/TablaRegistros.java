@@ -3,6 +3,7 @@
  */
 package finallogica.Interfaz.Registros;
 
+import finallogica.Clases.Estudiante;
 import finallogica.Interfaz.IngresoDirectivo;
 
 /**
@@ -10,12 +11,9 @@ import finallogica.Interfaz.IngresoDirectivo;
  * @author AntJZ
  */
 public class TablaRegistros extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TablaRegistros
-     */
+ 
     public TablaRegistros() {
-        initComponents();
+        
     }
 
     /**
@@ -68,7 +66,7 @@ public class TablaRegistros extends javax.swing.JFrame {
 
         LbConsulta.setText("Registro:");
 
-        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes", "Directores", "Graduandos", "Trabajos de Grado", "Materias", " ", " " }));
+        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes" }));
         CbConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CbConsultaActionPerformed(evt);
@@ -150,7 +148,7 @@ public class TablaRegistros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbConsultaActionPerformed
-        // TODO add your handling code here:
+        //Condicional :)
     }//GEN-LAST:event_CbConsultaActionPerformed
 
     private void BtSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarActionPerformed
