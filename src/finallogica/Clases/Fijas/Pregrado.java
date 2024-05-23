@@ -14,11 +14,20 @@ import finallogica.Clases.Carrera;
 public class Pregrado extends Carrera {
     private String nombre;
 
-    public Pregrado(String nombre, facultades facultades) {
-        super(facultades);
+    public Pregrado(int codigo, String nombre, facultades facultades) {
+        super(codigo, facultades);
         this.nombre = nombre;
     }
 
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    
     public String getNombre() {
         return nombre;
     }

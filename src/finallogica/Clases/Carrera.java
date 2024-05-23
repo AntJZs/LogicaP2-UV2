@@ -21,13 +21,15 @@ import finallogica.Clases.Fijas.Pregrado;
  *
  */
 public abstract class Carrera {
+    public int codigo;
     public enum facultades{CIENCIAS_POLITICAS_JURIDICAS,
                             CIENCIAS_EMPRESARIALES,
                             CIENCIAS_HUMANAS_ED,
                             INGENIERIAS}
     facultades facultades;    
 
-    public Carrera(facultades facultades) {
+    public Carrera(int codigo, facultades facultades) {
+        this.codigo = codigo;
         this.facultades = facultades;
     }
 
