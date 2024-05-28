@@ -6,7 +6,7 @@ package finallogica.Clases;
 
 /**
  *
- * @author gerso
+ * @author lpagc
  */
 public class Director {
     private String nombre;
@@ -30,6 +30,10 @@ public class Director {
         return numeroDirector;
     }
     
+    public String[] toTableString() {
+        String[] lista = {this.getNombre(), String.valueOf(this.getNumeroDirector())};
+        return lista;
+    }
 
     
 }

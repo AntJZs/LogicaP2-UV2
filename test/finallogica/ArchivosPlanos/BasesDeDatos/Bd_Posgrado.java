@@ -2,13 +2,12 @@ package finallogica.ArchivosPlanos.BasesDeDatos;
 
 import finallogica.Clases.Carrera;
 import finallogica.Clases.Fijas.Posgrado;
-import finallogica.Clases.Fijas.Pregrado;
-import finallogica.Modelo.Archivo;
+import finallogica.ArchivosPlanos.Archivo;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Bd_Posgrado {
-    private String nombre;
+    private String nombre = "Pregrado.csv";
 
     public Bd_Posgrado(String nombre) {
         this.nombre = nombre;
@@ -45,10 +44,9 @@ public class Bd_Posgrado {
 
     }
 
-    public boolean registararEstudiante(Pregrado p) {
+    public boolean registararEstudiante(Posgrado p) {
         Archivo archivo = new Archivo(this.nombre);
-        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getDescripcion()
-                + ";" + p.getPrecio() + ";" + p.getExistencias());
+        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getTipo_posgrado()+ ";" + p.getFacultades());
     }
 
     public boolean borrarTodo() {

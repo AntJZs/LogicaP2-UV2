@@ -68,7 +68,7 @@ public class TablaRegistros extends javax.swing.JFrame {
 
         LbConsulta.setText("Registro:");
 
-        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes", "Directores", "Graduandos", "Trabajos de Grado", "Materias", " ", " " }));
+        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes", "Directores", "Graduandos", "Trabajos de Grado", "Materias", "" }));
         CbConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CbConsultaActionPerformed(evt);

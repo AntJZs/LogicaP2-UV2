@@ -1,20 +1,19 @@
-package finallogica.ArchivosPlanos.BasesDeDatos;
+package finallogica.Modelo.BasesDeDatos;
 
 import finallogica.Clases.Carrera;
-import finallogica.Clases.Fijas.Pregrado;
-import finallogica.ArchivosPlanos.Archivo;
+import finallogica.Clases.Fijas.Posgrado;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Bd_Pregrado {
-    private String nombre;
+public class Bd_Posgrado {
+    private String nombre = "POSGRADO.csv";
 
-    public Bd_Pregrado(String nombre) {
+    public Bd_Posgrado(String nombre) {
         this.nombre = nombre;
     }
 
-    public LinkedList<Pregrado> obtener() {
-        LinkedList<Pregrado> productos = null;
+    public LinkedList<Posgrado> obtener() {
+        LinkedList<Posgrado> productos = null;
         Archivo archivo = new Archivo(this.nombre);
         LinkedList<String> lineas = archivo.obtenerTexto();
         if (lineas != null) {
@@ -25,6 +24,7 @@ public class Bd_Pregrado {
                 
                 int codigo = Integer.parseInt(token.nextToken());
                 String nombre = token.nextToken();
+                String tipo = token.nextToken();
                 String facultad = token.nextToken();
                 
 //                String linea = lineas.get(i);
@@ -34,7 +34,7 @@ public class Bd_Pregrado {
 //                String descripcion = tokens.nextToken();
 //                float precio = Float.parseFloat(tokens.nextToken());
 //                int existencias = Integer.parseInt(tokens.nextToken());
-                productos.add(new Pregrado(codigo, nombre, Carrera.facultades.valueOf(facultad)));
+                productos.add(new Posgrado(codigo, nombre, Posgrado.tipo.valueOf(tipo),  Carrera.facultades.valueOf(facultad)));
 
             }
 
@@ -43,9 +43,9 @@ public class Bd_Pregrado {
 
     }
 
-    public boolean registararEstudiante(Pregrado p) {
+    public boolean registararEstudiante(Posgrado p) {
         Archivo archivo = new Archivo(this.nombre);
-        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getFacultades());
+        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getTipo_posgrado()+ ";" + p.getFacultades());
     }
 
     public boolean borrarTodo() {

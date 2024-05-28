@@ -10,7 +10,9 @@ import finallogica.Clases.Carrera;
  *
  * @author lpagc
  *  
- * 
+ *  TableModelRequirements
+ *      [0]     [1]     [2]       [3]
+ *      Codigo, Nombre, Facultad, TipoPosgrado
  * 
  */
 public class Posgrado extends Carrera {
@@ -49,6 +51,9 @@ public class Posgrado extends Carrera {
         this.tipo_posgrado = tipo_posgrado;
     }
 
-    
+    public String[] toTableString() {
+        String[] lista = {String.valueOf(this.codigo), this.getNombre(), String.valueOf(this.getFacultades()), String.valueOf(this.getTipo_posgrado())};
+        return lista;
+    }
     
 }

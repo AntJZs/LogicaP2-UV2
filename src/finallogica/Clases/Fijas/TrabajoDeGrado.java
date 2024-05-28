@@ -8,11 +8,15 @@ import finallogica.Clases.Director;
 
 /**
  *
- * @author gerso
+ * @author lpagc
+ * 
+ *  TableModelRequirements
+ *      [0]     [1]          [2]             [3]
+ *      Nombre, TipoTrabajo, NombreDirector, Categoría
  */
 public class TrabajoDeGrado {
     private String nombre;
-    private enum tipo_trabajo{PRÁCTICA, INVESTIGACIÓN, DIPLOMADO}
+    private enum tipo_trabajo{PRÁCTICA, INVESTIGACION, DIPLOMADO}
     tipo_trabajo tipo_trabajo;
     private Director director;
     private enum categoria{A, B, C, D}
@@ -37,8 +41,44 @@ public class TrabajoDeGrado {
         this.director = director;
         this.categoria = categoria;
     }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public tipo_trabajo getTipo_trabajo() {
+        return tipo_trabajo;
+    }
+
+    public void setTipo_trabajo(tipo_trabajo tipo_trabajo) {
+        this.tipo_trabajo = tipo_trabajo;
+    }
+
+    public Director getDirector() {
+        return director;
+    }
+
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(categoria categoria) {
+        this.categoria = categoria;
+    }
     
     
+    public String[] toTableString() {
+        String[] lista = {this.getNombre(), String.valueOf(this.getTipo_trabajo()), this.getDirector().getNombre(), String.valueOf(this.getCategoria())};
+        return lista;
+    }
     
     
     

@@ -1,4 +1,4 @@
-package finallogica.Modelo;
+package finallogica.Modelo.BasesDeDatos;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -44,7 +44,7 @@ public class Archivo{
     
     private File obtenerArchivo() {       
         try {
-            URL url = getClass().getClassLoader().getResource("DB/"+nombre);
+            URL url = getClass().getClassLoader().getResource(nombre);
             return new File(url.toURI());            
         } catch (URISyntaxException ex) {
             ex.printStackTrace();
@@ -76,7 +76,7 @@ public class Archivo{
             String directorio=archivo.getParent();
             archivo.delete();
 
-            new FileWriter(directorio + nombre,true);
+            new FileWriter(directorio +"/"+nombre,true);
         }catch(IOException ex){
             ex.printStackTrace();
         }

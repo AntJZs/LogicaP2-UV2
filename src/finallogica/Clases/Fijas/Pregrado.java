@@ -10,6 +10,11 @@ import finallogica.Clases.Carrera;
  *
  * @author lpagc
  *
+ *  TableModelRequirements
+ *      [0]     [1]     [2]     
+ *      Codigo, Nombre, Facultad
+ * 
+ * 
  */
 public class Pregrado extends Carrera {
     private String nombre;
@@ -36,7 +41,10 @@ public class Pregrado extends Carrera {
         this.nombre = nombre;
     }
 
-    
+    public String[] toTableString() {
+        String[] lista = {String.valueOf(this.codigo), this.getNombre(), String.valueOf(this.getFacultades())};
+        return lista;
+    }
     
     
     

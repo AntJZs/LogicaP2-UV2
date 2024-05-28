@@ -1,21 +1,16 @@
-package finallogica.ArchivosPlanos.BasesDeDatos;
+package finallogica.Modelo.BasesDeDatos;
 
 import finallogica.Clases.Carrera;
 import finallogica.Clases.Fijas.Pregrado;
-import finallogica.ArchivosPlanos.Archivo;
+import finallogica.Clases.Fijas.TrabajoDeGrado;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Bd_Pregrado {
-    private String nombre;
+public class Bd_TrabajoDeGrado {
 
-    public Bd_Pregrado(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public LinkedList<Pregrado> obtener() {
+    public LinkedList<TrabajoDeGrado> obtener() {
         LinkedList<Pregrado> productos = null;
-        Archivo archivo = new Archivo(this.nombre);
+        Archivo archivo = new Archivo("PREGRADO.csv");
         LinkedList<String> lineas = archivo.obtenerTexto();
         if (lineas != null) {
             productos = new LinkedList();
@@ -43,13 +38,13 @@ public class Bd_Pregrado {
 
     }
 
-    public boolean registararEstudiante(Pregrado p) {
-        Archivo archivo = new Archivo(this.nombre);
+    public boolean registrarFacultad(Pregrado p) {
+        Archivo archivo = new Archivo("PREGRADO.csv");
         return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getFacultades());
     }
 
     public boolean borrarTodo() {
-        Archivo archivo = new Archivo(this.nombre);
+        Archivo archivo = new Archivo("PREGRADO.csv");
         return archivo.borrarContenido();
     }
 

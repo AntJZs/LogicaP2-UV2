@@ -19,14 +19,13 @@ import java.util.LinkedList;
  * 
  */
 public class ClasePrincipal {
-    public static LinkedList<Carrera> carrera = new LinkedList<>();
+    public static LinkedList<Pregrado> pregrado = new LinkedList<>();
+    public static LinkedList<Posgrado> posgrado = new LinkedList<>();
     public static LinkedList<Estudiante> estudiante = new LinkedList<>();
     public static LinkedList<Graduando> graduando = new LinkedList<>();
     public static ArrayList<TrabajoDeGrado> tg = new ArrayList<>();
     public static Directivo directivo = new Directivo("admin");
 
-    
-    
     public static void main(String[] args) {
         // Se agrega el directivo y el nombre de usuario del directivo
         
@@ -35,9 +34,9 @@ public class ClasePrincipal {
         
         // feat: se pueden agregar todas las carreras en un linkedList para evitar redundancias.
         // Agregar nuevos pregrados
-        carrera.add(new Pregrado("020", "Derecho", Pregrado.facultades.CIENCIAS_HUMANAS_ED));
+        pregrado.add(new Pregrado(020, "Derecho", Pregrado.facultades.CIENCIAS_HUMANAS_ED));
         // Agregar nuevos posgrados
-        carrera.add(new Posgrado("440" ,"Ciencias sociales", Posgrado.tipo.MAESTRIA, Carrera.facultades.INGENIERIAS));
+        posgrado.add(new Posgrado(440,"Ciencias sociales", Posgrado.tipo.MAESTRIA, Carrera.facultades.INGENIERIAS));
         
         // Agregar nuevos estudiantes
         estudiante.add(new Estudiante("Antonio", "De León", 1051, 30040, Estudiante.estado_matricula.ACTIVO, Estudiante.estado_graduacion.EGRESADO));

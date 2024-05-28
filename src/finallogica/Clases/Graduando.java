@@ -34,24 +34,25 @@ import java.util.Date;
  */
 public class Graduando {
     Estudiante estudiante;
-    private double deudas_biblioteca = 0;
+    private boolean deudas_biblioteca;
     // [] - Trabajo de grado
     private TrabajoDeGrado trabajo_grado;
     
-    private double mora_universidad;
-    private double deudas_universidad;
-    private double deudas_academicas = 0;
+    private boolean mora_universidad;
+    private boolean deudas_universidad;
+    private boolean deudas_academicas;
     private String certificado_ingles;
     private Date fecha_finalizacion;
     // Investigar: Implementación de las fechas
-    private int saber_pro;
+    private boolean saber_pro;
+    private Date fecha_graduacion;
+    private boolean promedio_final;
 
     public Graduando(Estudiante estudiante) {
         this.estudiante = estudiante;
     }
-
-     
     
+    // Implementar funciones interactivas.
     
     
 }

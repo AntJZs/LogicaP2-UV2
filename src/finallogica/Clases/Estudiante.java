@@ -16,6 +16,7 @@ public class Estudiante {
     private String nombre;
     private String apellido;
     private enum tipo_documento{CEDULA_CIUDADANIA,TARJETA_IDENTIDAD}; // Añadir los necesarios
+    tipo_documento tipo_documento;
     private int numero_documento;
     private int numero_telefono;
     // Asignar Facultad
@@ -38,9 +39,10 @@ public class Estudiante {
     // Verifica que el usuario tiene una sesión abierta.
             
     
-    public Estudiante(String nombre, String apellido, int numero_documento, int numero_telefono, estado_matricula estado_matricula, estado_graduacion estado_graduacion) {
+    public Estudiante(String nombre, String apellido, tipo_documento tipo_documento, int numero_documento, int numero_telefono, estado_matricula estado_matricula, estado_graduacion estado_graduacion) {
         this.nombre = nombre;
         this.apellido = apellido;
+        this.tipo_documento = tipo_documento;
         this.numero_documento = numero_documento;
         this.numero_telefono = numero_telefono;
         this.estado_matricula = estado_matricula;
@@ -135,6 +137,20 @@ public class Estudiante {
     public void setSesion(boolean sesion) {
         this.sesion = sesion;
     }    
+
+    public tipo_documento getTipo_documento() {
+        return tipo_documento;
+    }
+
+    public void setTipo_documento(tipo_documento tipo_documento) {
+        this.tipo_documento = tipo_documento;
+    }
     
+    
+    public String[] toTableString() {
+        String[] lista = {String.valueOf(this.codigo), this.getNombre(), this.getApellido(), String.valueOf(this.getTipo_documento()), String.valueOf(this.getNumero_documento()),
+        String.valueOf(this.getNumero_telefono()), String.valueOf(this.getEstado_matricula()), String.valueOf(this.getEstado_graduacion())};
+        return lista;
+    }
     
 }
