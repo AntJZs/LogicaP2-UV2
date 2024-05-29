@@ -50,7 +50,7 @@ public class Bd_Graduando {
 
     public boolean registrarFacultad(Pregrado p) {
         Archivo archivo = new Archivo(this.nombre);
-        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getFacultades());
+        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getFacultades()); // IWP
     }
 
     public boolean borrarTodo() {

@@ -4,12 +4,13 @@
 package finallogica.Interfaz.Modelos;
 
 import finallogica.Clases.Estudiante;
+import finallogica.Interfaz.ClasePrincipal;
 import java.util.LinkedList;
 import javax.swing.table.AbstractTableModel;
 
 public class Mod_Estudiante extends AbstractTableModel{
     String [] cols = {"Código", "Nombre", "Apellido", "Tipo Documento", "Número Documento", "Número Teléfono", "Estado Matrícula", "Estado Graduación"};
-    LinkedList<Estudiante> rows = new LinkedList<>();
+    LinkedList<Estudiante> rows = ClasePrincipal.estudiante;
 
     public Mod_Estudiante (LinkedList<Estudiante> rows) {
         this.rows = rows;
@@ -28,10 +29,10 @@ public class Mod_Estudiante extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-//        System.out.println((cols.get(rowIndex).toTableString()));
-//        for (Object object : cols.get(rowIndex).toTableString()) {
-//            System.out.println(object);
-//        }
+        System.out.println((rows.get(rowIndex).toTableString()));
+        for (Object object : rows.get(rowIndex).toTableString()) {
+            System.out.println(object);
+        }
     return rows.get(rowIndex).toTableString()[columnIndex];
     }
         @Override
