@@ -4,21 +4,26 @@
  */
 package finallogica.Clases;
 
-import java.util.List;
-import java.util.ArrayList;
+import finallogica.Clases.Fijas.Posgrado;
+import finallogica.Clases.Fijas.Pregrado;
+
 
 /**
  *
  * @author lpagc
+ * 
+ *  TableModelRequirements
+ *      [0]     [1]     [2]       [3]             [4]               [5]              [6]             [7]               [8]
+ *      Codigo, Nombre, Apellido, Tipo_documento, Numero_documento, Numero_telefono, Nombre_carrera, Estado_Matricula, Estado_Graduación.
  */
 public class Estudiante {
     private int codigo;
     private String nombre;
     private String apellido;
-    private enum tipo_documento{CEDULA_CIUDADANIA,TARJETA_IDENTIDAD}; // Añadir los necesarios
+    public enum tipo_documento{CEDULA_CIUDADANIA,TARJETA_IDENTIDAD}; // Añadir los necesarios
     tipo_documento tipo_documento;
-    private int numero_documento;
-    private int numero_telefono;
+    private String numero_documento;
+    private String numero_telefono;
     // Asignar Facultad
     // Asignar programa académico
     public enum estado_matricula{ACTIVO,INACTIVO}; // Importante para graduarse...
@@ -35,36 +40,38 @@ public class Estudiante {
     Esta verifica la relación entre estudiante y graduado, así que Graduado hereda
     de Estudiante
     */
+    private Carrera carrera;
     private boolean sesion;
     // Verifica que el usuario tiene una sesión abierta.
             
     
-    public Estudiante(String nombre, String apellido, tipo_documento tipo_documento, int numero_documento, int numero_telefono, estado_matricula estado_matricula, estado_graduacion estado_graduacion) {
+    public Estudiante(String nombre, String apellido, tipo_documento tipo_documento, String numero_documento, String numero_telefono, Pregrado carrera, estado_matricula estado_matricula, estado_graduacion estado_graduacion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.tipo_documento = tipo_documento;
         this.numero_documento = numero_documento;
         this.numero_telefono = numero_telefono;
+        this.carrera = carrera;
         this.estado_matricula = estado_matricula;
         this.estado_graduacion = estado_graduacion;
-        this.codigo = id(""+numero_documento); // Not a bug, a feature
+        this.codigo = id(numero_telefono+numero_documento); // Not a bug, a feature
+        System.out.println(this.codigo);
+    }
+    public Estudiante(String nombre, String apellido, tipo_documento tipo_documento, String numero_documento, String numero_telefono, Posgrado carrera, estado_matricula estado_matricula, estado_graduacion estado_graduacion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.tipo_documento = tipo_documento;
+        this.numero_documento = numero_documento;
+        this.numero_telefono = numero_telefono;
+        this.carrera = carrera;
+        this.estado_matricula = estado_matricula;
+        this.estado_graduacion = estado_graduacion;
+        this.codigo = id(numero_telefono+numero_documento); // Not a bug, a feature
         System.out.println(this.codigo);
     }
     
     // Función del toString: Ser una lista la cual se pueda mostrar en una tabla.
     // String...
-
-    public List<String> tableString() {
-        List<String> estudiante = new ArrayList<>();
-        estudiante.add(""+codigo);
-        estudiante.add(""+nombre);
-        estudiante.add(""+apellido);
-        estudiante.add(""+numero_documento);
-        estudiante.add(""+numero_telefono);
-        estudiante.add(""+estado_matricula);
-        estudiante.add(""+estado_graduacion);
-        return estudiante;
-    }
     
     
     
@@ -73,6 +80,7 @@ public class Estudiante {
         System.out.println("Generando ID...");
         return Math.abs(numero.hashCode()/1024); //Lo más aleatorio que conozco para hacer IDs
     }
+
     
     public String getNombre() {
         return nombre;
@@ -90,19 +98,19 @@ public class Estudiante {
         this.apellido = apellido;
     }
 
-    public int getNumero_documento() {
+    public String getNumero_documento() {
         return numero_documento;
     }
 
-    public void setNumero_documento(int numero_documento) {
+    public void setNumero_documento(String numero_documento) {
         this.numero_documento = numero_documento;
     }
 
-    public int getNumero_telefono() {
+    public String getNumero_telefono() {
         return numero_telefono;
     }
 
-    public void setNumero_telefono(int numero_telefono) {
+    public void setNumero_telefono(String numero_telefono) {
         this.numero_telefono = numero_telefono;
     }
 
@@ -113,6 +121,7 @@ public class Estudiante {
     public void setEstado_matricula(estado_matricula estado_matricula) {
         this.estado_matricula = estado_matricula;
     }
+
 
     public estado_graduacion getEstado_graduacion() {
         return estado_graduacion;
@@ -145,11 +154,20 @@ public class Estudiante {
     public void setTipo_documento(tipo_documento tipo_documento) {
         this.tipo_documento = tipo_documento;
     }
+
+    public Carrera getCarrera() {
+        return carrera;
+    }
+
+    public void setCarrera(Carrera carrera) {
+        this.carrera = carrera;
+    }
+    
     
     
     public String[] toTableString() {
         String[] lista = {String.valueOf(this.codigo), this.getNombre(), this.getApellido(), String.valueOf(this.getTipo_documento()), String.valueOf(this.getNumero_documento()),
-        String.valueOf(this.getNumero_telefono()), String.valueOf(this.getEstado_matricula()), String.valueOf(this.getEstado_graduacion())};
+        String.valueOf(this.getNumero_telefono()), this.getCarrera().getNombre() ,String.valueOf(this.getEstado_matricula()), String.valueOf(this.getEstado_graduacion())};
         return lista;
     }
     

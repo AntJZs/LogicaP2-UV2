@@ -3,9 +3,13 @@
  */
 package finallogica.Pruebas;
 
-import finallogica.Clases.Carrera;
+import finallogica.ArchivosPlanos.BasesDeDatos.Bd_Posgrado;
+import finallogica.ArchivosPlanos.BasesDeDatos.Bd_Pregrado;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
+import finallogica.Clases.Carrera;
+import finallogica.Clases.Estudiante;
+import finallogica.ArchivosPlanos.BasesDeDatos.Bd_Estudiante;
 import java.util.LinkedList;
 
 /**
@@ -17,12 +21,21 @@ import java.util.LinkedList;
 public class PruebasCarrera {
     public static LinkedList<Pregrado> pregrado = new LinkedList<>();
     public static LinkedList<Posgrado> posgrado = new LinkedList<>();
+    public static LinkedList<Carrera> carreras = new LinkedList<>();
+    public static LinkedList<Estudiante> estudiantes = new LinkedList<>();
+    
     public static void main(String[] args) {
         // Añade una nueva carrera de una facultad. Pregrado y Posgrado
-        pregrado.add(new Pregrado("Derecho", Pregrado.facultades.CIENCIAS_HUMANAS_ED));
-        posgrado.add(new Posgrado("Ciencias sociales", Posgrado.tipo.MAESTRIA, Carrera.facultades.INGENIERIAS));
+        Bd_Pregrado s_pregrados = new Bd_Pregrado("PREGRADOS.csv");
+        Bd_Posgrado s_posgrados = new Bd_Posgrado("POSGRADOS.csv");
+        Bd_Estudiante s_estudiantes = new Bd_Estudiante();
         
-        // Cómo llamar los linkedList
-        System.out.println(posgrado.get(0).getTipo_posgrado());
+        pregrado = s_pregrados.obtener();
+        posgrado = s_posgrados.obtener();
+        // Clasificando estudiantes...
+        estudiantes = s_estudiantes.obtener();
+        
+        
+        
     }
 }

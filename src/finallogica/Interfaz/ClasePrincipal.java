@@ -2,6 +2,7 @@ package finallogica.Interfaz;
 
 import finallogica.Clases.Carrera;
 import finallogica.Clases.Directivo;
+import finallogica.Clases.Director;
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
@@ -23,6 +24,7 @@ public class ClasePrincipal {
     public static LinkedList<Posgrado> posgrado = new LinkedList<>();
     public static LinkedList<Estudiante> estudiante = new LinkedList<>();
     public static LinkedList<Graduando> graduando = new LinkedList<>();
+    public static LinkedList<Director> director = new LinkedList<>();
     public static ArrayList<TrabajoDeGrado> tg = new ArrayList<>();
     public static Directivo directivo = new Directivo("admin");
 
@@ -39,7 +41,7 @@ public class ClasePrincipal {
         posgrado.add(new Posgrado(440,"Ciencias sociales", Posgrado.tipo.MAESTRIA, Carrera.facultades.INGENIERIAS));
         
         // Agregar nuevos estudiantes
-        estudiante.add(new Estudiante("Antonio", "De León", 1051, 30040, Estudiante.estado_matricula.ACTIVO, Estudiante.estado_graduacion.EGRESADO));
+        estudiante.add(new Estudiante("Antonie", "De León", Estudiante.tipo_documento.TARJETA_IDENTIDAD, "1051", "3016202020", pregrado.get(2) ,Estudiante.estado_matricula.ACTIVO, Estudiante.estado_graduacion.EGRESADO));
         
         // Hacer estudiantes egresados (graduandos). Esto se debe hacer cuando vaya a realizar
         // La solicitud y cumpla con los requisitos.

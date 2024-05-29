@@ -27,7 +27,7 @@ public class Archivo{
                 BufferedReader br = new BufferedReader(new FileReader(archivo));
                 String linea;
                 while ((linea = br.readLine()) != null) {
-                    System.out.println(linea);
+                    // System.out.println(linea);
                     lineasDeTexto.add(linea);
                 }
                 br.close();
@@ -44,7 +44,7 @@ public class Archivo{
     
     private File obtenerArchivo() {       
         try {
-            URL url = getClass().getClassLoader().getResource(nombre);
+            URL url = getClass().getClassLoader().getResource("finallogica/Modelo/BasesDeDatos/" + nombre);
             return new File(url.toURI());            
         } catch (URISyntaxException ex) {
             ex.printStackTrace();

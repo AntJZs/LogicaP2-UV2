@@ -16,32 +16,35 @@ import finallogica.Clases.Carrera;
  * 
  */
 public class Posgrado extends Carrera {
-    private String nombre;
     public enum tipo {MAESTRIA, ESPECIALIZACION}
     tipo tipo_posgrado;
 
     public Posgrado(int codigo, String nombre, tipo tipo_posgrado, facultades facultades) {
-        super(codigo, facultades);
-        this.nombre = nombre;
+        super(codigo, nombre, facultades);
         this.tipo_posgrado = tipo_posgrado;
     }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
     
+    @Override
     public String getNombre() {
         return nombre;
     }
 
+    @Override
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+
+    @Override
+    public int getCodigo() {
+        return codigo;
+    }
+
+    @Override
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    
 
     public tipo getTipo_posgrado() {
         return tipo_posgrado;
@@ -55,5 +58,8 @@ public class Posgrado extends Carrera {
         String[] lista = {String.valueOf(this.codigo), this.getNombre(), String.valueOf(this.getFacultades()), String.valueOf(this.getTipo_posgrado())};
         return lista;
     }
-    
+    public boolean isPosgrado(int codigo){ 
+        return this.codigo == codigo;
+    }
+
 }

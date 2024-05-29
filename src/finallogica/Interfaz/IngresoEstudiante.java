@@ -20,6 +20,7 @@ public class IngresoEstudiante extends javax.swing.JFrame {
      */
     public IngresoEstudiante() {
         initComponents();
+        LbSubtitulo.setText(ClasePrincipal.estudiante.get(IdSesion).getNombre());
                 if (ClasePrincipal.estudiante.get(IdSesion).getEstado_graduacion().EGRESADO != Estudiante.estado_graduacion.EGRESADO) {
             BtSolicitud.setEnabled(false);
     } else if (ClasePrincipal.estudiante.get(IdSesion).getEstado_graduacion().PENDIENTE == Estudiante.estado_graduacion.PENDIENTE) {

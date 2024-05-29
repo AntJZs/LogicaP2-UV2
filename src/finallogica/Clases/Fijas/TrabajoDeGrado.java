@@ -5,6 +5,7 @@
 package finallogica.Clases.Fijas;
 
 import finallogica.Clases.Director;
+import finallogica.Modelo.Operaciones;
 
 /**
  *
@@ -16,10 +17,10 @@ import finallogica.Clases.Director;
  */
 public class TrabajoDeGrado {
     private String nombre;
-    private enum tipo_trabajo{PRÁCTICA, INVESTIGACION, DIPLOMADO}
+    public enum tipo_trabajo{PRÁCTICA, INVESTIGACION, DIPLOMADO}
     tipo_trabajo tipo_trabajo;
     private Director director;
-    private enum categoria{A, B, C, D}
+    public enum categoria{A, B, C, D}
     categoria categoria;
 
     // Para pregrado
@@ -28,20 +29,22 @@ public class TrabajoDeGrado {
         this.tipo_trabajo = tipo_trabajo;
     }
     // Para posgrado
-    public TrabajoDeGrado(String nombre, tipo_trabajo tipo_trabajo, Director director) {
+    public TrabajoDeGrado(String nombre, tipo_trabajo tipo_trabajo, int director) {
         this.nombre = nombre;
         this.tipo_trabajo = tipo_trabajo;
-        this.director = director;
+        this.director = Operaciones.buscarDirector(director);
     }
 
     // Para maestría
-    public TrabajoDeGrado(String nombre, tipo_trabajo tipo_trabajo, Director director, categoria categoria) {
+    public TrabajoDeGrado(String nombre, tipo_trabajo tipo_trabajo, int director, categoria categoria) {
         this.nombre = nombre;
         this.tipo_trabajo = tipo_trabajo;
-        this.director = director;
+        this.director = Operaciones.buscarDirector(director);
         this.categoria = categoria;
     }
 
+
+    
     public String getNombre() {
         return nombre;
     }

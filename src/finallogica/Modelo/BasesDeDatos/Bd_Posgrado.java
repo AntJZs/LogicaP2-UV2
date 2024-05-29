@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.StringTokenizer;
 
 public class Bd_Posgrado {
-    private String nombre = "POSGRADO.csv";
+    private String nombre;
 
     public Bd_Posgrado(String nombre) {
         this.nombre = nombre;
@@ -26,7 +26,6 @@ public class Bd_Posgrado {
                 String nombre = token.nextToken();
                 String tipo = token.nextToken();
                 String facultad = token.nextToken();
-                
 //                String linea = lineas.get(i);
 //                StringTokenizer tokens = new StringTokenizer(linea, ";");
 //                String codigo = tokens.nextToken();

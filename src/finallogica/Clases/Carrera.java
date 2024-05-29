@@ -21,6 +21,7 @@ import finallogica.Clases.Fijas.Pregrado;
  *
  */
 public abstract class Carrera {
+    public String nombre;
     public int codigo;
     public enum facultades{CIENCIAS_POLITICAS_JURIDICAS,
                             CIENCIAS_EMPRESARIALES,
@@ -28,8 +29,9 @@ public abstract class Carrera {
                             INGENIERIAS}
     facultades facultades;    
 
-    public Carrera(int codigo, facultades facultades) {
+    public Carrera(int codigo, String nombre, facultades facultades) {
         this.codigo = codigo;
+        this.nombre = nombre;
         this.facultades = facultades;
     }
 
@@ -40,6 +42,12 @@ public abstract class Carrera {
     public void setFacultades(facultades facultades) {
         this.facultades = facultades;
     }
+
+    public abstract String getNombre();
+
+    public abstract void setNombre(String nombre);
+    public abstract int getCodigo();
+    public abstract void setCodigo(int codigo);
     
     
     

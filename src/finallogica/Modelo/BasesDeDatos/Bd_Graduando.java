@@ -6,10 +6,10 @@ import finallogica.Clases.Fijas.Pregrado;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
-public class Bd_Estudiante {
+public class Bd_Graduando {
     private String nombre;
 
-    public Bd_Estudiante(String nombre) {
+    public Bd_Graduando(String nombre) {
         this.nombre = nombre;
     }
     
@@ -48,9 +48,9 @@ public class Bd_Estudiante {
 
     }
 
-    public boolean registrarFacultad(Estudiante e) {
+    public boolean registrarFacultad(Pregrado p) {
         Archivo archivo = new Archivo(this.nombre);
-        return archivo.registrar(e.getCodigo() + ";" + e.getNombre() + ";" + e.getApellido() + ";" + e.getTipo_documento() + ";" + e.getNumero_documento() + ";" + e.getNumero_telefono() + ";" + e.getEstado_matricula() + ";" + e.getEstado_graduacion() + ";" + e.getCarrera().getCodigo());
+        return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getFacultades());
     }
 
     public boolean borrarTodo() {
