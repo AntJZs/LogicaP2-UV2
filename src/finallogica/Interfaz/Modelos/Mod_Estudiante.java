@@ -29,10 +29,6 @@ public class Mod_Estudiante extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        System.out.println((rows.get(rowIndex).toTableString()));
-        for (Object object : rows.get(rowIndex).toTableString()) {
-            System.out.println(object);
-        }
     return rows.get(rowIndex).toTableString()[columnIndex];
     }
         @Override

@@ -181,9 +181,15 @@
     <Component class="javax.swing.JComboBox" name="CbConsulta">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="1">
+          <StringArray count="4">
             <StringItem index="0" value="Estudiantes"/>
+            <StringItem index="1" value="Directivos"/>
+            <StringItem index="2" value="Pregrados"/>
+            <StringItem index="3" value="Posgrados"/>
           </StringArray>
+        </Property>
+        <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+          <Connection code="null" type="code"/>
         </Property>
       </Properties>
       <Events>

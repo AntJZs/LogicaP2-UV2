@@ -5,7 +5,11 @@ package finallogica.Interfaz.Registros;
 
 import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Interfaz.Modelos.Mod_Estudiante;
+import finallogica.Interfaz.Modelos.Mod_Posgrado;
+import finallogica.Interfaz.Modelos.Mod_Pregrado;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -14,14 +18,11 @@ import java.awt.event.MouseAdapter;
  */
 public class TablaRegistros extends javax.swing.JFrame {
  
-    private int indice;
+    private int tb_indice;
     public TablaRegistros() {
         initComponents();
         BtSeleccionar.setEnabled(false);
-//        TbLista.addMouseListener(new MouseAdapter()) {
-        TbLista.setModel(new Mod_Estudiante(ClasePrincipal.estudiante));
     }
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +74,8 @@ public class TablaRegistros extends javax.swing.JFrame {
 
         LbConsulta.setText("Registro:");
 
-        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes" }));
+        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes", "Directivos", "Pregrados", "Posgrados" }));
+        CbConsulta.setSelectedItem(null);
         CbConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CbConsultaActionPerformed(evt);
@@ -156,16 +158,66 @@ public class TablaRegistros extends javax.swing.JFrame {
 
     private void CbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbConsultaActionPerformed
         //Condicional :)
+        switch (CbConsulta.getSelectedIndex()) {
+            case 0:
+                TbLista.setModel(new Mod_Estudiante(ClasePrincipal.estudiante));
+//                TbLista.addMouseListener(new MouseAdapter() {
+//                    DefaultTableModel m = new DefaultTableModel();
+//                    @Override
+//                public void mouseClicked(MouseEvent e) {
+//                    tb_indice = TbLista.getSelectedRow();
+//                    BtSeleccionar.setEnabled(true);
+//                    System.out.println(tb_indice);
+//                    }
+//            });
+                break;
+            case 1:
+                System.out.println("No implementado...");
+                break;
+//                //TbLista.setModel(new Mod_Directivo(ClasePrincipal.directivo));
+//                TbLista.addMouseListener(new MouseAdapter() {
+//                    DefaultTableModel m = new DefaultTableModel();
+//                    @Override
+//                public void mouseClicked(MouseEvent e) {
+//                    tb_indice = TbLista.getSelectedRow();
+//                    BtSeleccionar.setEnabled(true);
+//                    System.out.println(tb_indice);
+//                    }
+//            });
+//                break;
+            case 2:
+                TbLista.setModel(new Mod_Pregrado(ClasePrincipal.pregrado));
+//                TbLista.addMouseListener(new MouseAdapter() {
+//                    DefaultTableModel m = new DefaultTableModel();
+//                    @Override
+//                public void mouseClicked(MouseEvent e) {
+//                    tb_indice = TbLista.getSelectedRow();
+//                    BtSeleccionar.setEnabled(true);
+//                    System.out.println(tb_indice);
+//                    }
+//            });
+                break;
+            case 3:
+                TbLista.setModel(new Mod_Posgrado(ClasePrincipal.posgrado));
+//                TbLista.addMouseListener(new MouseAdapter() {
+//                    DefaultTableModel m = new DefaultTableModel();
+//                    @Override
+//                public void mouseClicked(MouseEvent e) {
+//                    tb_indice = TbLista.getSelectedRow();
+//                    BtSeleccionar.setEnabled(true);
+//                    System.out.println(tb_indice);
+//                    }
+//            });                
+
+        }
     }//GEN-LAST:event_CbConsultaActionPerformed
 
     private void BtSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarActionPerformed
-        // TODO add your handling code here:
+        BtSeleccionar.setEnabled(false);
     }//GEN-LAST:event_BtSeleccionarActionPerformed
 
     private void TbListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbListaMouseClicked
-        // Este código va a ver si se hizo click a la tabla, y depronto, que elemento se seleccionó.
-        BtSeleccionar.setVisible(true);
-        
+        // Este código va a ver si se hizo click a la tabla, y depronto, que elemento se seleccionó.        
     }//GEN-LAST:event_TbListaMouseClicked
 
     private void BtAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtrasActionPerformed

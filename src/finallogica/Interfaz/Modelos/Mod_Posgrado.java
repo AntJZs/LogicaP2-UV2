@@ -3,8 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package finallogica.Interfaz.Modelos;
-
-import finallogica.Clases.Estudiante;
+;
 import finallogica.Clases.Fijas.Posgrado;
 import java.util.LinkedList;
 import javax.swing.table.AbstractTableModel;
@@ -34,10 +33,6 @@ public class Mod_Posgrado extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-//        System.out.println((cols.get(rowIndex).toTableString()));
-//        for (Object object : cols.get(rowIndex).toTableString()) {
-//            System.out.println(object);
-//        }
     return rows.get(rowIndex).toTableString()[columnIndex];
     }
         @Override
