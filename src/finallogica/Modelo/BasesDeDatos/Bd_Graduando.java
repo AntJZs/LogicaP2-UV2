@@ -3,6 +3,7 @@ package finallogica.Modelo.BasesDeDatos;
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.StringTokenizer;
 
@@ -23,15 +24,15 @@ public class Bd_Graduando {
                 String linea = lineas.get(i);
                 StringTokenizer token = new StringTokenizer(linea, ";");
                 String codigo = token.nextToken();
-                boolean deudasbibilioteca = token.nextToken();
+                String deudasbibilioteca = token.nextToken();
                 String trabajodegrado = token.nextToken();
                 String  mora = token.nextToken();
                 String deudas_u = token.nextToken();
                 String deudas_a = token.nextToken();
                 String cert = token.nextToken();
-                Date fecha = token.nextToken();
+                String fecha = token.nextToken();
                 String saberpro = token.nextToken();
-                Date fecha_grad = token.nextToken();
+                String fecha_grad = token.nextToken();
                 String nota = token.nextToken();
                     
             }
