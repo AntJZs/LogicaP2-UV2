@@ -23,24 +23,17 @@ public class Bd_Graduando {
                 String linea = lineas.get(i);
                 StringTokenizer token = new StringTokenizer(linea, ";");
                 String codigo = token.nextToken();
-                String nombre = token.nextToken();
-                String apellido = token.nextToken();
-                String tipo_identidad = token.nextToken();
-                String num_identidad = token.nextToken();
-                String telefono = token.nextToken();
-                String matricula = token.nextToken();
-                String estado = token.nextToken();
-                int cod_carrera = Integer.parseInt(token.nextToken());
-                for (Pregrado p : MainArchivos.pregrado) {
-                    if (p.isPregrado(cod_carrera)) {
-                        estudiantes.add(new Estudiante(nombre, apellido, Estudiante.tipo_documento.valueOf(tipo_identidad), num_identidad, telefono, p ,Estudiante.estado_matricula.valueOf(matricula), Estudiante.estado_graduacion.valueOf(estado)));
-                    }
-                }
-                for (Posgrado p : MainArchivos.posgrado) {
-                    if (p.isPosgrado(cod_carrera)) {
-                        estudiantes.add(new Estudiante(nombre, apellido, Estudiante.tipo_documento.valueOf(tipo_identidad), num_identidad, telefono, p, Estudiante.estado_matricula.valueOf(matricula), Estudiante.estado_graduacion.valueOf(estado)));
-                    }
-                }
+                boolean deudasbibilioteca = token.nextToken();
+                String trabajodegrado = token.nextToken();
+                String  mora = token.nextToken();
+                String deudas_u = token.nextToken();
+                String deudas_a = token.nextToken();
+                String cert = token.nextToken();
+                Date fecha = token.nextToken();
+                String saberpro = token.nextToken();
+                Date fecha_grad = token.nextToken();
+                String nota = token.nextToken();
+                    
             }
 
         }

@@ -149,6 +149,9 @@ public class Inicio extends javax.swing.JFrame {
     private void BtIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtIngresarActionPerformed
         // Se hace la operación de inicio de sesión... Especificada en pruebas.
         IdSesion = InicioSesion.iniciarUsuario(TfNombre.getText(), TfCodigo.getText());
+        if (IdSesion >= 0) {
+            this.setVisible(false);
+        }
         
         
     }//GEN-LAST:event_BtIngresarActionPerformed

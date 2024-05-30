@@ -1,6 +1,5 @@
 package finallogica.Modelo.BasesDeDatos;
 
-import finallogica.Clases.Carrera;
 import finallogica.Clases.Fijas.TrabajoDeGrado;
 import java.util.LinkedList;
 import java.util.StringTokenizer;

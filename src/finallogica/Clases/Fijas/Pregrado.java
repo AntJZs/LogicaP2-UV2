@@ -52,7 +52,7 @@ public class Pregrado extends Carrera {
     }
     
         public boolean isPregrado(int codigo){ 
-        return this.codigo == codigo;
+        return (this.codigo == codigo);
     }
     
 }

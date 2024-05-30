@@ -3,8 +3,10 @@
  */
 package finallogica.Interfaz.Registros;
 
-import finallogica.Clases.Estudiante;
-import finallogica.Interfaz.IngresoDirectivo;
+import finallogica.Interfaz.ClasePrincipal;
+import finallogica.Interfaz.Modelos.Mod_Estudiante;
+import java.awt.event.MouseAdapter;
+
 
 /**
  *
@@ -12,9 +14,14 @@ import finallogica.Interfaz.IngresoDirectivo;
  */
 public class TablaRegistros extends javax.swing.JFrame {
  
+    private int indice;
     public TablaRegistros() {
-        
+        initComponents();
+        BtSeleccionar.setEnabled(false);
+//        TbLista.addMouseListener(new MouseAdapter()) {
+        TbLista.setModel(new Mod_Estudiante(ClasePrincipal.estudiante));
     }
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,7 +69,7 @@ public class TablaRegistros extends javax.swing.JFrame {
         LbImg.setPreferredSize(new java.awt.Dimension(262, 120));
 
         LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LbDescripcion.setText("Lorem Ipsum dolor sit amet...");
+        LbDescripcion.setText("Vista general, todos los datos");
 
         LbConsulta.setText("Registro:");
 
@@ -157,6 +164,7 @@ public class TablaRegistros extends javax.swing.JFrame {
 
     private void TbListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbListaMouseClicked
         // Este código va a ver si se hizo click a la tabla, y depronto, que elemento se seleccionó.
+        BtSeleccionar.setVisible(true);
         
     }//GEN-LAST:event_TbListaMouseClicked
 

@@ -1,6 +1,5 @@
 package finallogica.Interfaz;
 
-import finallogica.Clases.Carrera;
 import finallogica.Clases.Directivo;
 import finallogica.Clases.Director;
 import finallogica.Clases.Estudiante;
@@ -8,7 +7,7 @@ import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
 import finallogica.Clases.Fijas.TrabajoDeGrado;
 import finallogica.Clases.Graduando;
-import java.util.ArrayList;
+import finallogica.Modelo.BasesDeDatos.*;
 import java.util.LinkedList;
 
 /**
@@ -25,11 +24,27 @@ public class ClasePrincipal {
     public static LinkedList<Estudiante> estudiante = new LinkedList<>();
     public static LinkedList<Graduando> graduando = new LinkedList<>();
     public static LinkedList<Director> director = new LinkedList<>();
-    public static ArrayList<TrabajoDeGrado> tg = new ArrayList<>();
+    public static LinkedList<TrabajoDeGrado> tg = new LinkedList<>();
     public static Directivo directivo = new Directivo("admin");
 
     public static void main(String[] args) {
-        // Se agrega el directivo y el nombre de usuario del directivo
+        /*
+            CARGAR BASES DE DATOS.
+          Se cargan primero las listas en CSV, para así tener las relaciones hechas.
+        */
+        
+        Bd_Pregrado pregrados_s = new Bd_Pregrado("PREGRADOS.csv");
+        pregrado = pregrados_s.obtener();
+        Bd_Posgrado posgrados_s = new Bd_Posgrado("POSGRADOS.csv");
+        posgrado = posgrados_s.obtener();
+        Bd_TrabajoDeGrado trabajos_s = new Bd_TrabajoDeGrado("TRABAJOSDEGRADO.csv");
+        tg = trabajos_s.obtener();
+        Bd_Director directores_s = new Bd_Director("DIRECTORES.csv");
+        director =  directores_s.obtener();
+        Bd_Estudiante estudiantes_s = new Bd_Estudiante("ESTUDIANTES.csv");
+        estudiante = estudiantes_s.obtener();
+        Bd_Graduando graduandos_s = new Bd_Graduando("GRADUANDOS.csv");
+        // graduando = graduandos_s.obtener(); // A implementar...
         
         // El codigo va a ser siempre 604802 por conveniencia, luego se va a permitir cambiar.
         

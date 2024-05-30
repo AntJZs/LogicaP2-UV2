@@ -4,9 +4,14 @@
  */
 package finallogica.Interfaz;
 
+import finallogica.Interfaz.Registros.TablaRegistros;
+
 /**
  *
- * @author gerso
+ * @author lpagc
+ *  == Registros ==
+ *  Esto abre la pestaña de TablaRegistros, para probar los modelos de tabla y los registros a verificar.
+ *  
  */
 public class IngresoDirectivo extends javax.swing.JFrame {
 
@@ -57,6 +62,11 @@ public class IngresoDirectivo extends javax.swing.JFrame {
 
         BtModificar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         BtModificar.setText("Modificar registros");
+        BtModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtModificarActionPerformed(evt);
+            }
+        });
 
         BtMostrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         BtMostrar.setText("Mostrar registros");
@@ -98,6 +108,11 @@ public class IngresoDirectivo extends javax.swing.JFrame {
         );
 
         BtSalir.setText("Cerrar Sesión");
+        BtSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,6 +154,17 @@ public class IngresoDirectivo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtModificarActionPerformed
+        TablaRegistros registros = new TablaRegistros();
+        registros.setVisible(true);
+    }//GEN-LAST:event_BtModificarActionPerformed
+
+    private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
+        Inicio.IdSesion = -1;
+        new Inicio().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtSalirActionPerformed
 
     /**
      * @param args the command line arguments

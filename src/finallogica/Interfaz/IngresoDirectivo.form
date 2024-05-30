@@ -162,6 +162,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Modificar registros"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtModificarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtMostrar">
           <Properties>
@@ -193,6 +196,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cerrar Sesi&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtSalirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

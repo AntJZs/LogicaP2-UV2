@@ -59,7 +59,7 @@ public class Posgrado extends Carrera {
         return lista;
     }
     public boolean isPosgrado(int codigo){ 
-        return this.codigo == codigo;
+        return (this.codigo == codigo);
     }
 
 }
