@@ -3,17 +3,64 @@
  */
 package finallogica.Interfaz.Registros;
 
+import finallogica.Clases.Estudiante;
+import finallogica.Clases.Fijas.Pregrado;
+import finallogica.Interfaz.ClasePrincipal;
+import finallogica.Modelo.Operaciones;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author AntJZ
  */
 public class VentanaRegistros extends javax.swing.JFrame {
 
+    private String tipo;
+    private int index;
+    private Object who;
     /**
      * Creates new form VentanaRegistros
      */
-    public VentanaRegistros() {
+
+
+    public VentanaRegistros(String tipo, int index) {
+        this.tipo = tipo;
+        this.index = index;
         initComponents();
+        
+       LbTitulo.setText(this.tipo);
+        if (this.tipo.equals("Estudiantes")) {
+            Estudiante e = ClasePrincipal.estudiante.get(index);
+            who = e;
+            LbDescripcion.setText(String.valueOf(e.getCodigo()));
+            
+            Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
+            Info1.setText(e.getNombre());
+            Info2.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
+            Info2.setText(e.getApellido());
+            Info3.setBorder(javax.swing.BorderFactory.createTitledBorder("Num. Documento"));
+            Info3.setText(e.getNumero_documento());
+            Info4.setBorder(javax.swing.BorderFactory.createTitledBorder("Num. Teléfono"));
+            Info4.setText(e.getNumero_telefono());
+            
+        } else if (this.tipo.equals("Directivos")) {
+            // Si ya está implementado en el código principal, fue que no hice esta interfaz todavía
+            // Sorry ma people... (Antonio)
+        } else if (this.tipo.equals("Pregrados")) {
+            Pregrado p = ClasePrincipal.pregrado.get(index);
+            LbDescripcion.setText(String.valueOf(p.getCodigo()));
+            who = p;
+            
+            Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
+            Info1.setText(p.getNombre());
+            Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Facultad"));
+            Info2.setText(String.valueOf(p.getFacultades()));
+            Info3.setVisible(false); Info4.setVisible(false);
+        } else if (this.tipo.equals("Posgrados")) {
+            LbDescripcion.setText(ClasePrincipal.posgrado.get(index).getNombre());
+        } else {
+            JOptionPane.showMessageDialog(null, "Corre el programa desde la clase principal, ya que no se han cargado aún los datos...");
+        }
     }
 
     /**
@@ -25,16 +72,17 @@ public class VentanaRegistros extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        LbDescripcion = new javax.swing.JLabel();
         LbImg = new javax.swing.JLabel();
-        LbDescripcion1 = new javax.swing.JLabel();
         LbTitulo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-
-        LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LbDescripcion.setText("Lorem Ipsum dolor sit amet...");
+        LbDescripcion = new javax.swing.JLabel();
+        BtCerrar = new javax.swing.JButton();
+        BtModificar = new javax.swing.JButton();
+        BtEliminar = new javax.swing.JButton();
+        Panel = new javax.swing.JPanel();
+        Info1 = new javax.swing.JLabel();
+        Info2 = new javax.swing.JLabel();
+        Info3 = new javax.swing.JLabel();
+        Info4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,23 +90,74 @@ public class VentanaRegistros extends javax.swing.JFrame {
         LbImg.setText("LogoAdmin");
         LbImg.setPreferredSize(new java.awt.Dimension(262, 120));
 
-        LbDescripcion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LbDescripcion1.setText("Nombre o código");
-
         LbTitulo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         LbTitulo.setText("Tipo");
 
-        jButton1.setText("Cerrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LbDescripcion.setText("Código");
+
+        BtCerrar.setText("Cerrar");
+        BtCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BtCerrarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Modificar");
+        BtModificar.setText("Modificar");
 
-        jButton3.setForeground(new java.awt.Color(153, 0, 51));
-        jButton3.setText("Eliminar");
+        BtEliminar.setForeground(new java.awt.Color(153, 0, 51));
+        BtEliminar.setText("Eliminar");
+        BtEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtEliminarActionPerformed(evt);
+            }
+        });
+
+        Panel.setBorder(javax.swing.BorderFactory.createTitledBorder("Resumen"));
+        Panel.setPreferredSize(new java.awt.Dimension(47, 200));
+
+        Info1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Info1.setText("Field");
+        Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
+
+        Info2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Info2.setText("Field");
+        Info2.setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
+
+        Info3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Info3.setText("Field");
+        Info3.setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
+
+        Info4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        Info4.setText("Field");
+        Info4.setBorder(javax.swing.BorderFactory.createTitledBorder("Title"));
+
+        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
+        Panel.setLayout(PanelLayout);
+        PanelLayout.setHorizontalGroup(
+            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Info1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Info2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Info3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Info4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        PanelLayout.setVerticalGroup(
+            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Info1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Info2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Info3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Info4)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,42 +168,61 @@ public class VentanaRegistros extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LbDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LbDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                             .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(BtModificar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtEliminar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BtCerrar)))
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LbDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(BtCerrar)
+                    .addComponent(BtModificar)
+                    .addComponent(BtEliminar))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void BtCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BtCerrarActionPerformed
+
+    private void BtEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEliminarActionPerformed
+         int r = JOptionPane.showConfirmDialog(null, "Está seguro que quiere eliminar el estudiante?\nEsto puede dejar datos huérfanos...", "Confirmación", JOptionPane.YES_NO_OPTION);
+        if (r == 0) {
+            if (Operaciones.eliminarRegistro(who)) {
+            this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "El estudiante no pudo ser eliminado.\nEs todo lo que sé...", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        } else {
+            System.out.println("Cancelado...");
+        }
+    }//GEN-LAST:event_BtEliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -136,18 +254,22 @@ public class VentanaRegistros extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegistros().setVisible(true);
+                new VentanaRegistros("Lorem Ipsum", 0).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtCerrar;
+    private javax.swing.JButton BtEliminar;
+    private javax.swing.JButton BtModificar;
+    private javax.swing.JLabel Info1;
+    private javax.swing.JLabel Info2;
+    private javax.swing.JLabel Info3;
+    private javax.swing.JLabel Info4;
     private javax.swing.JLabel LbDescripcion;
-    private javax.swing.JLabel LbDescripcion1;
     private javax.swing.JLabel LbImg;
     private javax.swing.JLabel LbTitulo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JPanel Panel;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,11 +17,21 @@ import javax.swing.table.DefaultTableModel;
  * @author AntJZ
  */
 public class TablaRegistros extends javax.swing.JFrame {
- 
     private int tb_indice;
+    public String tipo;
+ 
     public TablaRegistros() {
         initComponents();
         BtSeleccionar.setEnabled(false);
+                TbLista.addMouseListener(new MouseAdapter() {
+                    DefaultTableModel m = new DefaultTableModel();
+                    @Override
+                public void mouseClicked(MouseEvent e) {
+                    tb_indice = TbLista.getSelectedRow();
+                    BtSeleccionar.setEnabled(true);
+                    System.out.println(tb_indice);
+                    }
+            });
     }
 
     /**
@@ -158,62 +168,30 @@ public class TablaRegistros extends javax.swing.JFrame {
 
     private void CbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbConsultaActionPerformed
         //Condicional :)
+        tipo = CbConsulta.getItemAt(CbConsulta.getSelectedIndex());
         switch (CbConsulta.getSelectedIndex()) {
             case 0:
                 TbLista.setModel(new Mod_Estudiante(ClasePrincipal.estudiante));
-//                TbLista.addMouseListener(new MouseAdapter() {
-//                    DefaultTableModel m = new DefaultTableModel();
-//                    @Override
-//                public void mouseClicked(MouseEvent e) {
-//                    tb_indice = TbLista.getSelectedRow();
-//                    BtSeleccionar.setEnabled(true);
-//                    System.out.println(tb_indice);
-//                    }
-//            });
                 break;
             case 1:
                 System.out.println("No implementado...");
                 break;
-//                //TbLista.setModel(new Mod_Directivo(ClasePrincipal.directivo));
-//                TbLista.addMouseListener(new MouseAdapter() {
-//                    DefaultTableModel m = new DefaultTableModel();
-//                    @Override
-//                public void mouseClicked(MouseEvent e) {
-//                    tb_indice = TbLista.getSelectedRow();
-//                    BtSeleccionar.setEnabled(true);
-//                    System.out.println(tb_indice);
-//                    }
-//            });
-//                break;
             case 2:
                 TbLista.setModel(new Mod_Pregrado(ClasePrincipal.pregrado));
-//                TbLista.addMouseListener(new MouseAdapter() {
-//                    DefaultTableModel m = new DefaultTableModel();
-//                    @Override
-//                public void mouseClicked(MouseEvent e) {
-//                    tb_indice = TbLista.getSelectedRow();
-//                    BtSeleccionar.setEnabled(true);
-//                    System.out.println(tb_indice);
-//                    }
-//            });
+
                 break;
             case 3:
                 TbLista.setModel(new Mod_Posgrado(ClasePrincipal.posgrado));
-//                TbLista.addMouseListener(new MouseAdapter() {
-//                    DefaultTableModel m = new DefaultTableModel();
-//                    @Override
-//                public void mouseClicked(MouseEvent e) {
-//                    tb_indice = TbLista.getSelectedRow();
-//                    BtSeleccionar.setEnabled(true);
-//                    System.out.println(tb_indice);
-//                    }
-//            });                
+               
 
         }
     }//GEN-LAST:event_CbConsultaActionPerformed
 
     private void BtSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarActionPerformed
         BtSeleccionar.setEnabled(false);
+        VentanaRegistros registro = new VentanaRegistros(tipo, tb_indice);
+        registro.setVisible(true);
+        
     }//GEN-LAST:event_BtSeleccionarActionPerformed
 
     private void TbListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbListaMouseClicked
