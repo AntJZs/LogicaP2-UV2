@@ -15,6 +15,10 @@ public class Estudiante {
     private int codigo;
     private String nombre;
     private String apellido;
+
+    public Object[] toTableString() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     private enum tipo_documento{CEDULA_CIUDADANIA,TARJETA_IDENTIDAD}; // Añadir los necesarios
     private int numero_documento;
     private int numero_telefono;

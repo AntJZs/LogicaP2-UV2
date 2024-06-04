@@ -15,6 +15,10 @@ import finallogica.Clases.Carrera;
  */
 public class Posgrado extends Carrera {
     private String nombre;
+
+    public Object[] toTableString() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     public enum tipo {MAESTRIA, ESPECIALIZACION}
     tipo tipo_posgrado;
 

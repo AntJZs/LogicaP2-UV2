@@ -35,9 +35,9 @@ public class ClasePrincipal {
         
         // feat: se pueden agregar todas las carreras en un linkedList para evitar redundancias.
         // Agregar nuevos pregrados
-        carrera.add(new Pregrado("020", "Derecho", Pregrado.facultades.CIENCIAS_HUMANAS_ED));
+        carrera.add(new Pregrado(020, "Derecho", Pregrado.facultades.CIENCIAS_HUMANAS_ED));
         // Agregar nuevos posgrados
-        carrera.add(new Posgrado("440" ,"Ciencias sociales", Posgrado.tipo.MAESTRIA, Carrera.facultades.INGENIERIAS));
+        carrera.add(new Posgrado(440 ,"Ciencias sociales", Posgrado.tipo.MAESTRIA, Carrera.facultades.INGENIERIAS));
         
         // Agregar nuevos estudiantes
         estudiante.add(new Estudiante("Antonio", "De León", 1051, 30040, Estudiante.estado_matricula.ACTIVO, Estudiante.estado_graduacion.EGRESADO));
