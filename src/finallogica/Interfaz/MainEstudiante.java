@@ -4,6 +4,7 @@
  */
 package finallogica.Interfaz;
 
+
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +17,9 @@ public class MainEstudiante extends javax.swing.JFrame {
      * Creates new form Main
      */
     public MainEstudiante() {
+        this.setUndecorated(true);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -28,174 +31,434 @@ public class MainEstudiante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        LbPanel = new javax.swing.JLabel();
+        LbCuadrados = new javax.swing.JLabel();
+        LbSalirSistema = new javax.swing.JLabel();
+        LbMinimizar = new javax.swing.JLabel();
+        LbBarraSuperior = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        LbBienvenido = new javax.swing.JLabel();
+        LbEstudiante = new javax.swing.JLabel();
+        LbImagenDirectivo = new javax.swing.JLabel();
+        SeparadorPanel = new javax.swing.JSeparator();
+        BtCerrarSesion = new javax.swing.JButton();
+        JpPanelInicio = new javax.swing.JPanel();
+        LbImgPanelInicio = new javax.swing.JLabel();
+        LbPanelInicio = new javax.swing.JLabel();
+        JpRegistros = new javax.swing.JPanel();
+        LbImgRegistros = new javax.swing.JLabel();
+        LbRegistros = new javax.swing.JLabel();
+        JpSolicitudes = new javax.swing.JPanel();
+        LbImgSolicitudes = new javax.swing.JLabel();
+        LbSolicitudes = new javax.swing.JLabel();
+        JpEstadisticas = new javax.swing.JPanel();
+        LbImgEstadisticas = new javax.swing.JLabel();
+        LbEstadisticas = new javax.swing.JLabel();
+        TbPanelDirectivo = new javax.swing.JTabbedPane();
+        JpInicio = new javax.swing.JPanel();
+        LbImgInfo = new javax.swing.JLabel();
+        JpTablaRegistros = new javax.swing.JPanel();
+        LbBienvenido1 = new javax.swing.JLabel();
+        JpTablaSolicitudes = new javax.swing.JPanel();
+        LbBienvenido2 = new javax.swing.JLabel();
+        JpTablaEstadisticas = new javax.swing.JPanel();
+        LbBienvenido3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
+        setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 51, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        LbPanel.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbPanel.setForeground(new java.awt.Color(255, 255, 255));
+        LbPanel.setText("Panel");
+        getContentPane().add(LbPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, 29));
 
-        jLabel1.setFont(new java.awt.Font("Yu Gothic UI Semilight", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Estudiante");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(2213, 52, -1, 19));
+        LbCuadrados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/cuadrados.png"))); // NOI18N
+        getContentPane().add(LbCuadrados, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/usuario (4).png"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 83, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Bienvenido");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, 30));
-
-        jLabel9.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Estudiante");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, 20));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/usuario3.png"))); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 180));
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 510, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 810, 510));
-
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/x.png"))); // NOI18N
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+        LbSalirSistema.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/x.png"))); // NOI18N
+        LbSalirSistema.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
+                LbSalirSistemaMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 20, -1, -1));
+        getContentPane().add(LbSalirSistema, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/cuadrados.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Panel");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 20, -1, 29));
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/flecha-hacia-abajo-para-navegar.png"))); // NOI18N
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        LbMinimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/flecha-hacia-abajo-para-navegar.png"))); // NOI18N
+        LbMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                LbMinimizarMouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, 20));
+        getContentPane().add(LbMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, -1, 20));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/Fondo3.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 810, 70));
+        LbBarraSuperior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/Fondo3.png"))); // NOI18N
+        getContentPane().add(LbBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 810, 70));
 
-        jLabel8.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Estudiante");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 29));
-
-        jPanel4.setBackground(new java.awt.Color(4, 168, 255));
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(0, 39, 229));
+        LbBienvenido.setBackground(new java.awt.Color(0, 51, 255));
+        LbBienvenido.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        LbBienvenido.setForeground(new java.awt.Color(0, 51, 255));
+        LbBienvenido.setText("Bienvenido");
+        jPanel4.add(LbBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 150, -1, 30));
 
-        jLabel10.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Ver Información");
+        LbEstudiante.setBackground(new java.awt.Color(0, 153, 255));
+        LbEstudiante.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbEstudiante.setForeground(new java.awt.Color(0, 204, 255));
+        LbEstudiante.setText("Estudiante");
+        jPanel4.add(LbEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 20));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(33, 33, 33))
+        LbImagenDirectivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/usuario (6).png"))); // NOI18N
+        jPanel4.add(LbImagenDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 20, -1, -1));
+
+        SeparadorPanel.setForeground(new java.awt.Color(0, 51, 255));
+        jPanel4.add(SeparadorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 240, 240, 10));
+
+        BtCerrarSesion.setBackground(new java.awt.Color(0, 51, 255));
+        BtCerrarSesion.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
+        BtCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        BtCerrarSesion.setText("Cerrar Sesión");
+        BtCerrarSesion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        BtCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCerrarSesionActionPerformed(evt);
+            }
+        });
+        jPanel4.add(BtCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 130, 44));
+
+        JpPanelInicio.setBackground(new java.awt.Color(255, 255, 255));
+        JpPanelInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpPanelInicio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                JpPanelInicioMouseMoved(evt);
+            }
+        });
+        JpPanelInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JpPanelInicioMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JpPanelInicioMouseExited(evt);
+            }
+        });
+
+        LbImgPanelInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/hogar.png"))); // NOI18N
+
+        LbPanelInicio.setBackground(new java.awt.Color(255, 255, 255));
+        LbPanelInicio.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbPanelInicio.setForeground(new java.awt.Color(102, 102, 102));
+        LbPanelInicio.setText("Inicio");
+
+        javax.swing.GroupLayout JpPanelInicioLayout = new javax.swing.GroupLayout(JpPanelInicio);
+        JpPanelInicio.setLayout(JpPanelInicioLayout);
+        JpPanelInicioLayout.setHorizontalGroup(
+            JpPanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpPanelInicioLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(LbImgPanelInicio)
+                .addGap(29, 29, 29)
+                .addComponent(LbPanelInicio)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+        JpPanelInicioLayout.setVerticalGroup(
+            JpPanelInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpPanelInicioLayout.createSequentialGroup()
+                .addComponent(LbImgPanelInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(LbPanelInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 240, 50));
+        jPanel4.add(JpPanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 230, -1));
 
-        jPanel1.setBackground(new java.awt.Color(0, 39, 229));
+        JpRegistros.setBackground(new java.awt.Color(255, 255, 255));
+        JpRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpRegistros.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                JpRegistrosMouseMoved(evt);
+            }
+        });
+        JpRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JpRegistrosMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JpRegistrosMouseExited(evt);
+            }
+        });
 
-        jLabel12.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Solicitud");
+        LbImgRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/compartir.png"))); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(71, 71, 71))
+        LbRegistros.setBackground(new java.awt.Color(255, 255, 255));
+        LbRegistros.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbRegistros.setForeground(new java.awt.Color(102, 102, 102));
+        LbRegistros.setText("Registros");
+
+        javax.swing.GroupLayout JpRegistrosLayout = new javax.swing.GroupLayout(JpRegistros);
+        JpRegistros.setLayout(JpRegistrosLayout);
+        JpRegistrosLayout.setHorizontalGroup(
+            JpRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpRegistrosLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(LbImgRegistros)
+                .addGap(29, 29, 29)
+                .addComponent(LbRegistros)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+        JpRegistrosLayout.setVerticalGroup(
+            JpRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpRegistrosLayout.createSequentialGroup()
+                .addComponent(LbImgRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(LbRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 240, 50));
+        jPanel4.add(JpRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 230, -1));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 240, 410));
+        JpSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
+        JpSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JpSolicitudesMouseClicked(evt);
+            }
+        });
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/flecha-hacia-abajo-para-navegar.png"))); // NOI18N
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
+        LbImgSolicitudes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/mensaje.png"))); // NOI18N
+
+        LbSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
+        LbSolicitudes.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbSolicitudes.setForeground(new java.awt.Color(102, 102, 102));
+        LbSolicitudes.setText("Solicitudes");
+
+        javax.swing.GroupLayout JpSolicitudesLayout = new javax.swing.GroupLayout(JpSolicitudes);
+        JpSolicitudes.setLayout(JpSolicitudesLayout);
+        JpSolicitudesLayout.setHorizontalGroup(
+            JpSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpSolicitudesLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(LbImgSolicitudes)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(LbSolicitudes)
+                .addGap(21, 21, 21))
+        );
+        JpSolicitudesLayout.setVerticalGroup(
+            JpSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpSolicitudesLayout.createSequentialGroup()
+                .addComponent(LbImgSolicitudes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(LbSolicitudes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(JpSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 230, -1));
+
+        JpEstadisticas.setBackground(new java.awt.Color(255, 255, 255));
+        JpEstadisticas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpEstadisticas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JpEstadisticasMouseClicked(evt);
+            }
+        });
+
+        LbImgEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/ojo.png"))); // NOI18N
+
+        LbEstadisticas.setBackground(new java.awt.Color(255, 255, 255));
+        LbEstadisticas.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbEstadisticas.setForeground(new java.awt.Color(102, 102, 102));
+        LbEstadisticas.setText("Estadísticas");
+
+        javax.swing.GroupLayout JpEstadisticasLayout = new javax.swing.GroupLayout(JpEstadisticas);
+        JpEstadisticas.setLayout(JpEstadisticasLayout);
+        JpEstadisticasLayout.setHorizontalGroup(
+            JpEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpEstadisticasLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(LbImgEstadisticas)
+                .addGap(28, 28, 28)
+                .addComponent(LbEstadisticas)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+        JpEstadisticasLayout.setVerticalGroup(
+            JpEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpEstadisticasLayout.createSequentialGroup()
+                .addGroup(JpEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LbImgEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 6, Short.MAX_VALUE))
+        );
+
+        jPanel4.add(JpEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 230, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 580));
+
+        JpInicio.setBackground(new java.awt.Color(255, 255, 255));
+
+        LbImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/fondoestudiante.png"))); // NOI18N
+
+        javax.swing.GroupLayout JpInicioLayout = new javax.swing.GroupLayout(JpInicio);
+        JpInicio.setLayout(JpInicioLayout);
+        JpInicioLayout.setHorizontalGroup(
+            JpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LbImgInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 810, Short.MAX_VALUE)
+        );
+        JpInicioLayout.setVerticalGroup(
+            JpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpInicioLayout.createSequentialGroup()
+                .addComponent(LbImgInfo)
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+
+        TbPanelDirectivo.addTab("tab1", JpInicio);
+
+        JpTablaRegistros.setBackground(new java.awt.Color(255, 255, 255));
+
+        LbBienvenido1.setBackground(new java.awt.Color(0, 51, 255));
+        LbBienvenido1.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        LbBienvenido1.setForeground(new java.awt.Color(0, 51, 255));
+        LbBienvenido1.setText("Registros");
+
+        javax.swing.GroupLayout JpTablaRegistrosLayout = new javax.swing.GroupLayout(JpTablaRegistros);
+        JpTablaRegistros.setLayout(JpTablaRegistrosLayout);
+        JpTablaRegistrosLayout.setHorizontalGroup(
+            JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaRegistrosLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        JpTablaRegistrosLayout.setVerticalGroup(
+            JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaRegistrosLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        TbPanelDirectivo.addTab("tab2", JpTablaRegistros);
+
+        JpTablaSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
+
+        LbBienvenido2.setBackground(new java.awt.Color(0, 51, 255));
+        LbBienvenido2.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        LbBienvenido2.setForeground(new java.awt.Color(0, 51, 255));
+        LbBienvenido2.setText("Solicitudes");
+
+        javax.swing.GroupLayout JpTablaSolicitudesLayout = new javax.swing.GroupLayout(JpTablaSolicitudes);
+        JpTablaSolicitudes.setLayout(JpTablaSolicitudesLayout);
+        JpTablaSolicitudesLayout.setHorizontalGroup(
+            JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido2)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        JpTablaSolicitudesLayout.setVerticalGroup(
+            JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        TbPanelDirectivo.addTab("tab3", JpTablaSolicitudes);
+
+        JpTablaEstadisticas.setBackground(new java.awt.Color(255, 255, 255));
+
+        LbBienvenido3.setBackground(new java.awt.Color(0, 51, 255));
+        LbBienvenido3.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        LbBienvenido3.setForeground(new java.awt.Color(0, 51, 255));
+        LbBienvenido3.setText("Estadísticas");
+
+        javax.swing.GroupLayout JpTablaEstadisticasLayout = new javax.swing.GroupLayout(JpTablaEstadisticas);
+        JpTablaEstadisticas.setLayout(JpTablaEstadisticasLayout);
+        JpTablaEstadisticasLayout.setHorizontalGroup(
+            JpTablaEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(JpTablaEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaEstadisticasLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido3)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        JpTablaEstadisticasLayout.setVerticalGroup(
+            JpTablaEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(JpTablaEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaEstadisticasLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        TbPanelDirectivo.addTab("tab4", JpTablaEstadisticas);
+
+        getContentPane().add(TbPanelDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 810, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        int dialog = JOptionPane.YES_NO_OPTION;
+    private void LbMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LbMinimizarMouseClicked
+        this.setState(Login.ICONIFIED);
+    }//GEN-LAST:event_LbMinimizarMouseClicked
+
+    private void BtCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCerrarSesionActionPerformed
+        Inicio.IdSesion = -1;
+        new Login().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtCerrarSesionActionPerformed
+
+    private void JpPanelInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpPanelInicioMouseClicked
+        TbPanelDirectivo.setSelectedIndex(0);
+    }//GEN-LAST:event_JpPanelInicioMouseClicked
+
+    private void JpPanelInicioMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpPanelInicioMouseMoved
+
+    }//GEN-LAST:event_JpPanelInicioMouseMoved
+
+    private void JpPanelInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpPanelInicioMouseExited
+        
+    }//GEN-LAST:event_JpPanelInicioMouseExited
+
+    private void JpSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpSolicitudesMouseClicked
+        TbPanelDirectivo.setSelectedIndex(2);
+    }//GEN-LAST:event_JpSolicitudesMouseClicked
+
+    private void JpEstadisticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpEstadisticasMouseClicked
+        TbPanelDirectivo.setSelectedIndex(3);
+    }//GEN-LAST:event_JpEstadisticasMouseClicked
+
+    private void JpRegistrosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpRegistrosMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JpRegistrosMouseMoved
+
+    private void JpRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpRegistrosMouseClicked
+        TbPanelDirectivo.setSelectedIndex(1);
+    }//GEN-LAST:event_JpRegistrosMouseClicked
+
+    private void JpRegistrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpRegistrosMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JpRegistrosMouseExited
+
+    private void LbSalirSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LbSalirSistemaMouseClicked
+       int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del sistema?","Exit", dialog);
         if(result ==0){
             System.exit(0);
         }
-    }//GEN-LAST:event_jLabel13MouseClicked
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        this.setState(Login.ICONIFIED);
-    }//GEN-LAST:event_jLabel11MouseClicked
+    }//GEN-LAST:event_LbSalirSistemaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -224,6 +487,12 @@ public class MainEstudiante extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -234,24 +503,37 @@ public class MainEstudiante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton BtCerrarSesion;
+    private javax.swing.JPanel JpEstadisticas;
+    private javax.swing.JPanel JpInicio;
+    private javax.swing.JPanel JpPanelInicio;
+    private javax.swing.JPanel JpRegistros;
+    private javax.swing.JPanel JpSolicitudes;
+    private javax.swing.JPanel JpTablaEstadisticas;
+    private javax.swing.JPanel JpTablaRegistros;
+    private javax.swing.JPanel JpTablaSolicitudes;
+    private javax.swing.JLabel LbBarraSuperior;
+    private javax.swing.JLabel LbBienvenido;
+    private javax.swing.JLabel LbBienvenido1;
+    private javax.swing.JLabel LbBienvenido2;
+    private javax.swing.JLabel LbBienvenido3;
+    private javax.swing.JLabel LbCuadrados;
+    private javax.swing.JLabel LbEstadisticas;
+    private javax.swing.JLabel LbEstudiante;
+    private javax.swing.JLabel LbImagenDirectivo;
+    private javax.swing.JLabel LbImgEstadisticas;
+    private javax.swing.JLabel LbImgInfo;
+    private javax.swing.JLabel LbImgPanelInicio;
+    private javax.swing.JLabel LbImgRegistros;
+    private javax.swing.JLabel LbImgSolicitudes;
+    private javax.swing.JLabel LbMinimizar;
+    private javax.swing.JLabel LbPanel;
+    private javax.swing.JLabel LbPanelInicio;
+    private javax.swing.JLabel LbRegistros;
+    private javax.swing.JLabel LbSalirSistema;
+    private javax.swing.JLabel LbSolicitudes;
+    private javax.swing.JSeparator SeparadorPanel;
+    private javax.swing.JTabbedPane TbPanelDirectivo;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
