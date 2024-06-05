@@ -23,7 +23,7 @@ public class InicioSesion {
             // Entra a la interfaz de directivo, no entra en un ID.            
         } else {
         for (Estudiante e : ClasePrincipal.estudiante) {
-            if ((codigo).equals(""+e.getCodigo())) {
+            if ((codigo).equals(String.valueOf(e.getCodigo()))) {
                 IdSesion = ClasePrincipal.estudiante.indexOf(e);
                 IngresoEstudiante instanciaEstudiante = new IngresoEstudiante();
                 instanciaEstudiante.setVisible(true);
