@@ -5,6 +5,8 @@
 package finallogica.Interfaz;
 
 import finallogica.Modelo.InicioSesion;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -12,7 +14,7 @@ import finallogica.Modelo.InicioSesion;
  */
 public class Inicio extends javax.swing.JFrame {
     public static int IdSesion;
-
+    
     /**
      * Creates new form Inicio
      */
@@ -42,7 +44,7 @@ public class Inicio extends javax.swing.JFrame {
         setTitle("Ulises V2");
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setIconImages(null);
+        setIconImage(ClasePrincipal.favicon);
         setResizable(false);
 
         LbImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

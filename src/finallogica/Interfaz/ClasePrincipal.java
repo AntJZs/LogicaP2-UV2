@@ -8,6 +8,8 @@ import finallogica.Clases.Fijas.Pregrado;
 import finallogica.Clases.Fijas.TrabajoDeGrado;
 import finallogica.Clases.Graduando;
 import finallogica.Modelo.BasesDeDatos.*;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.LinkedList;
 
 /**
@@ -19,6 +21,9 @@ import java.util.LinkedList;
  * 
  */
 public class ClasePrincipal {
+    private static java.net.URL url = ClassLoader.getSystemResource("finallogica/Interfaz/img/favicon.png");
+    
+    public static Image favicon = Toolkit.getDefaultToolkit().createImage(url);
     public static LinkedList<Pregrado> pregrado = new LinkedList<>();
     public static LinkedList<Posgrado> posgrado = new LinkedList<>();
     public static LinkedList<Estudiante> estudiante = new LinkedList<>();
@@ -26,7 +31,7 @@ public class ClasePrincipal {
     public static LinkedList<Director> director = new LinkedList<>();
     public static LinkedList<TrabajoDeGrado> tg = new LinkedList<>();
     public static Directivo directivo = new Directivo("admin");
-
+    public static int IdSesion;
     public static void main(String[] args) {
         /*
             CARGAR BASES DE DATOS.

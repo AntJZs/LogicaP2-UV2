@@ -64,6 +64,7 @@ public class MainDirectivo extends javax.swing.JFrame {
         setAutoRequestFocus(false);
         setUndecorated(true);
         setResizable(false);
+        setIconImage(ClasePrincipal.favicon);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LbPanel.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N

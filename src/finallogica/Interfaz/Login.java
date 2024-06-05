@@ -67,6 +67,7 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setText("Bienvenido a Ulises V2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(ClasePrincipal.favicon);
         setUndecorated(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,6 +144,7 @@ public class Login extends javax.swing.JFrame {
                 BtnIngresarMouseClicked(evt);
             }
         });
+        BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         LbRegistrarse.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         LbRegistrarse.setForeground(new java.awt.Color(0, 39, 229));
@@ -242,6 +244,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LbCubierta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/FondoLogin.png"))); // NOI18N
+        LbCubierta.setOpaque(true);
         jPanel1.add(LbCubierta, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         JpRegistro.setBackground(new java.awt.Color(255, 255, 255));

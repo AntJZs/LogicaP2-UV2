@@ -55,6 +55,9 @@ public class TablaRegistros extends javax.swing.JFrame {
         BtAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Lista de registros");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setIconImage(ClasePrincipal.favicon);
 
         TbLista.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -64,6 +67,7 @@ public class TablaRegistros extends javax.swing.JFrame {
                 "DefaultMain", "Default1", "Default2", "Default3", "Default4"
             }
         ));
+        TbLista.setCursor(new java.awt.Cursor(java.awt.Cursor.CROSSHAIR_CURSOR));
         TbLista.getTableHeader().setReorderingAllowed(false);
         TbLista.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -199,7 +203,7 @@ public class TablaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_TbListaMouseClicked
 
     private void BtAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtrasActionPerformed
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_BtAtrasActionPerformed
 
     /**
