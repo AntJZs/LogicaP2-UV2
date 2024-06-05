@@ -47,6 +47,7 @@ public class IngresoEstudiante extends javax.swing.JFrame {
         BtSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(ClasePrincipal.favicon);
         setResizable(false);
 
         LbTitulo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N

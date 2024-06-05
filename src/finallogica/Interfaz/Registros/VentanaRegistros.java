@@ -4,6 +4,7 @@
 package finallogica.Interfaz.Registros;
 
 import finallogica.Clases.Estudiante;
+import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
 import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Modelo.Operaciones;
@@ -46,6 +47,7 @@ public class VentanaRegistros extends javax.swing.JFrame {
         } else if (this.tipo.equals("Directivos")) {
             // Si ya está implementado en el código principal, fue que no hice esta interfaz todavía
             // Sorry ma people... (Antonio)
+            
         } else if (this.tipo.equals("Pregrados")) {
             Pregrado p = ClasePrincipal.pregrado.get(index);
             LbDescripcion.setText(String.valueOf(p.getCodigo()));
@@ -53,11 +55,20 @@ public class VentanaRegistros extends javax.swing.JFrame {
             
             Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
             Info1.setText(p.getNombre());
-            Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Facultad"));
+            Info2.setBorder(javax.swing.BorderFactory.createTitledBorder("Facultad"));
             Info2.setText(String.valueOf(p.getFacultades()));
             Info3.setVisible(false); Info4.setVisible(false);
         } else if (this.tipo.equals("Posgrados")) {
-            LbDescripcion.setText(ClasePrincipal.posgrado.get(index).getNombre());
+            Posgrado p = ClasePrincipal.posgrado.get(index);
+            LbDescripcion.setText(String.valueOf(p.getCodigo()));
+            who = p;
+            Info1.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
+            Info1.setText(p.getNombre());
+            Info2.setBorder(javax.swing.BorderFactory.createTitledBorder("Facultad"));
+            Info2.setText(String.valueOf(p.getFacultades()));
+            Info3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo"));
+            Info3.setText(String.valueOf(p.getTipo_posgrado()));
+            Info4.setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "Corre el programa desde la clase principal, ya que no se han cargado aún los datos...");
         }
@@ -74,7 +85,7 @@ public class VentanaRegistros extends javax.swing.JFrame {
 
         LbImg = new javax.swing.JLabel();
         LbTitulo = new javax.swing.JLabel();
-        LbDescripcion = new javax.swing.JLabel();
+        LbTextID = new javax.swing.JLabel();
         BtCerrar = new javax.swing.JButton();
         BtModificar = new javax.swing.JButton();
         BtEliminar = new javax.swing.JButton();
@@ -83,8 +94,11 @@ public class VentanaRegistros extends javax.swing.JFrame {
         Info2 = new javax.swing.JLabel();
         Info3 = new javax.swing.JLabel();
         Info4 = new javax.swing.JLabel();
+        LbDescripcion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Propiedades");
+        setIconImage(ClasePrincipal.favicon);
 
         LbImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/decoadmin.png"))); // NOI18N
         LbImg.setText("LogoAdmin");
@@ -93,8 +107,8 @@ public class VentanaRegistros extends javax.swing.JFrame {
         LbTitulo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         LbTitulo.setText("Tipo");
 
-        LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LbDescripcion.setText("Código");
+        LbTextID.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LbTextID.setText("ID:");
 
         BtCerrar.setText("Cerrar");
         BtCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,6 +118,11 @@ public class VentanaRegistros extends javax.swing.JFrame {
         });
 
         BtModificar.setText("Modificar");
+        BtModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtModificarActionPerformed(evt);
+            }
+        });
 
         BtEliminar.setForeground(new java.awt.Color(153, 0, 51));
         BtEliminar.setText("Eliminar");
@@ -139,16 +158,15 @@ public class VentanaRegistros extends javax.swing.JFrame {
             .addGroup(PanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Info1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Info2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Info3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Info4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                    .addComponent(Info1)
+                    .addComponent(Info3)
+                    .addComponent(Info2)
+                    .addComponent(Info4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PanelLayout.setVerticalGroup(
             PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(PanelLayout.createSequentialGroup()
                 .addComponent(Info1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Info2)
@@ -156,8 +174,11 @@ public class VentanaRegistros extends javax.swing.JFrame {
                 .addComponent(Info3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Info4)
-                .addContainerGap())
+                .addGap(0, 23, Short.MAX_VALUE))
         );
+
+        LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LbDescripcion.setText("Código");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -168,14 +189,18 @@ public class VentanaRegistros extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LbDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbTextID)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(LbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 467, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(BtModificar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BtEliminar)
@@ -187,14 +212,16 @@ public class VentanaRegistros extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(LbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(LbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(LbTextID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addComponent(Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtCerrar)
@@ -223,6 +250,11 @@ public class VentanaRegistros extends javax.swing.JFrame {
             System.out.println("Cancelado...");
         }
     }//GEN-LAST:event_BtEliminarActionPerformed
+
+    private void BtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtModificarActionPerformed
+        AsistenteModificacion mod = new AsistenteModificacion(who);
+        mod.setVisible(true);
+    }//GEN-LAST:event_BtModificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,6 +301,7 @@ public class VentanaRegistros extends javax.swing.JFrame {
     private javax.swing.JLabel Info4;
     private javax.swing.JLabel LbDescripcion;
     private javax.swing.JLabel LbImg;
+    private javax.swing.JLabel LbTextID;
     private javax.swing.JLabel LbTitulo;
     private javax.swing.JPanel Panel;
     // End of variables declaration//GEN-END:variables

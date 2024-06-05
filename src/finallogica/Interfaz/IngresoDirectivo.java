@@ -46,6 +46,7 @@ public class IngresoDirectivo extends javax.swing.JFrame {
         jLabel3.setText("LogoPlaceholder");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(ClasePrincipal.favicon);
 
         LbTitulo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         LbTitulo.setText("Panel Directivo");

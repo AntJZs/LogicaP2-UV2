@@ -4,17 +4,46 @@
 package finallogica.Interfaz.Registros;
 
 import finallogica.Interfaz.ClasePrincipal;
+import finallogica.Modelo.Operaciones;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author AntJZ
  */
-public class VentanaSolicitud extends javax.swing.JFrame {
-
+public class AsistenteModificacion extends javax.swing.JFrame {
+    Object data;
+    int index; 
     /**
-     * Creates new form VentanaSolicitud
+     * Creates new form AsistenteModificacion
+     * @param data Uses
      */
-    public VentanaSolicitud() {
+    public AsistenteModificacion(Object data) {
+        this.data = data;
         initComponents();
+        // Averiguar que tipo de dato es
+        index = Operaciones.buscarIndice(data);
+        switch (Operaciones.buscarTipo(data)) {
+            case 0:
+                // Estudiantes
+                LbDescripcion.setText("Estudiante");
+                break;
+            case 1:
+                // Trabajos de grado
+                LbDescripcion.setText("Trabajo de Grado");
+                break;
+            case 2:
+                // Pregrados
+                LbDescripcion.setText("Pregrado");
+                break;
+            case 3:
+                // Posgrados
+                LbDescripcion.setText("Posgrado");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Corre el programa desde la clase principal, ya que no se han cargado aún los datos...");
+                this.dispose();
+        }
     }
 
     /**
@@ -27,24 +56,33 @@ public class VentanaSolicitud extends javax.swing.JFrame {
     private void initComponents() {
 
         LbImg = new javax.swing.JLabel();
-        LbDescripcion1 = new javax.swing.JLabel();
         LbTitulo = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        LbDescripcion = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        BtCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Propiedades - Modificar");
         setIconImage(ClasePrincipal.favicon);
 
         LbImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/decoadmin.png"))); // NOI18N
         LbImg.setText("LogoAdmin");
         LbImg.setPreferredSize(new java.awt.Dimension(262, 120));
 
-        LbDescripcion1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LbDescripcion1.setText("Nombre o código estudiante");
-
         LbTitulo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        LbTitulo.setText("Modificar Solicitud");
+        LbTitulo.setText("Modificar Datos");
 
-        jToggleButton1.setText("Aceptar y enviar");
+        LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        LbDescripcion.setText("Tipo de dato");
+
+        jTextField1.setText("jTextField1");
+
+        BtCerrar.setText("Cancelar");
+        BtCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCerrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -53,13 +91,20 @@ public class VentanaSolicitud extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(LbDescripcion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                        .addGap(149, 149, 149))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LbDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jToggleButton1)
+                .addComponent(BtCerrar)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -68,17 +113,23 @@ public class VentanaSolicitud extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(LbDescripcion1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(LbDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(LbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
-                .addComponent(jToggleButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(BtCerrar)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCerrarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BtCerrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,28 +148,29 @@ public class VentanaSolicitud extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaSolicitud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AsistenteModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaSolicitud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AsistenteModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaSolicitud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AsistenteModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaSolicitud.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AsistenteModificacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaSolicitud().setVisible(true);
+                new AsistenteModificacion(null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel LbDescripcion1;
+    private javax.swing.JButton BtCerrar;
+    private javax.swing.JLabel LbDescripcion;
     private javax.swing.JLabel LbImg;
     private javax.swing.JLabel LbTitulo;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

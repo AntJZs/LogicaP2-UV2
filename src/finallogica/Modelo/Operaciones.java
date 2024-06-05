@@ -40,6 +40,41 @@ public class Operaciones {
         return null;
     }
     
+    /*
+     BÚSQUEDA AVANZADA
+    Estas son propias del programa, son flexibles y útiles en el transcurso del
+    programa. Estas buscan si están empaquetadas dentro de algun objeto, y devuelve
+    el tipo de objeto y el índice de dónde se encuentra. 
+    */
+    public static int  buscarTipo(Object data) {
+        if (ClasePrincipal.estudiante.contains(data)) {
+            return 0;
+        } else if (ClasePrincipal.tg.contains(data)) {
+            return 1;
+        } else if (ClasePrincipal.pregrado.contains(data)) {
+            return 2;
+        } else if (ClasePrincipal.posgrado.contains(data)) {
+            return 3;
+        }
+        System.out.println("Operaciones.buscarTipo: No se ha encontrado el tipo de dato. Compruebe los datos disponibles y si el objeto es válido.");
+        return -1;
+    }
+   
+    public static int buscarIndice(Object data) {
+        if (ClasePrincipal.estudiante.contains(data)) {
+            return ClasePrincipal.estudiante.indexOf(data);
+        } else if (ClasePrincipal.pregrado.contains(data)) {
+            return ClasePrincipal.estudiante.indexOf(data);
+        } else if (ClasePrincipal.posgrado.contains(data)) {
+            return ClasePrincipal.estudiante.indexOf(data);
+        } else if (ClasePrincipal.tg.contains(data)) {
+            return ClasePrincipal.tg.indexOf(data);
+        }
+        System.out.println("Operaciones.buscarIndice: No se ha encontrado el dato. Compruebe los datos disponibles y si el objeto es válido.");
+        return -1;
+    }
+    
+    
         /*
      ELIMINACIÓN
     Estas son propias del prorgama, por lo que deben ser usadas por separado.
