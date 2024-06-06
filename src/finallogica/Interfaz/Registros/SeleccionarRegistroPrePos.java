@@ -4,7 +4,6 @@
 package finallogica.Interfaz.Registros;
 
 import finallogica.Interfaz.ClasePrincipal;
-import finallogica.Interfaz.Modelos.Mod_Estudiante;
 import finallogica.Interfaz.Modelos.Mod_Posgrado;
 import finallogica.Interfaz.Modelos.Mod_Pregrado;
 import java.awt.event.MouseAdapter;
@@ -16,11 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author AntJZ
  */
-public class TablaRegistros extends javax.swing.JFrame {
+public class SeleccionarRegistroPrePos extends javax.swing.JFrame {
     private int tb_indice;
     public String tipo;
+    protected int selected;
  
-    public TablaRegistros() {
+    public SeleccionarRegistroPrePos() {
         initComponents();
         BtSeleccionar.setEnabled(false);
                 TbLista.addMouseListener(new MouseAdapter() {
@@ -29,7 +29,6 @@ public class TablaRegistros extends javax.swing.JFrame {
                 public void mouseClicked(MouseEvent e) {
                     tb_indice = TbLista.getSelectedRow();
                     BtSeleccionar.setEnabled(true);
-                    System.out.println(tb_indice);
                     }
             });
     }
@@ -77,7 +76,7 @@ public class TablaRegistros extends javax.swing.JFrame {
         jScrollPane1.setViewportView(TbLista);
 
         LbTitulo.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        LbTitulo.setText("Panel Directivo");
+        LbTitulo.setText("Seleccionar Carrera");
 
         LbImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/decoadmin.png"))); // NOI18N
         LbImg.setText("LogoAdmin");
@@ -88,7 +87,7 @@ public class TablaRegistros extends javax.swing.JFrame {
 
         LbConsulta.setText("Registro:");
 
-        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiantes", "Directivos", "Pregrados", "Posgrados" }));
+        CbConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pregrados", "Posgrados" }));
         CbConsulta.setSelectedItem(null);
         CbConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,7 +103,7 @@ public class TablaRegistros extends javax.swing.JFrame {
             }
         });
 
-        LbEstado.setText("Selecciona una entrada de la tabla para ver sus propiedades y acciones.");
+        LbEstado.setText("Selecciona una entrada de la tabla para modificar el código del estudiante.");
         LbEstado.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         BtAtras.setText("Regresar");
@@ -138,7 +137,7 @@ public class TablaRegistros extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(BtSeleccionar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(LbEstado, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                                .addComponent(LbEstado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(BtAtras)))
                         .addContainerGap())))
@@ -175,16 +174,10 @@ public class TablaRegistros extends javax.swing.JFrame {
         tipo = CbConsulta.getItemAt(CbConsulta.getSelectedIndex());
         switch (CbConsulta.getSelectedIndex()) {
             case 0:
-                TbLista.setModel(new Mod_Estudiante(ClasePrincipal.estudiante));
-                break;
-            case 1:
-                System.out.println("No implementado...");
-                break;
-            case 2:
                 TbLista.setModel(new Mod_Pregrado(ClasePrincipal.pregrado));
 
                 break;
-            case 3:
+            case 1:
                 TbLista.setModel(new Mod_Posgrado(ClasePrincipal.posgrado));
                
 
@@ -193,8 +186,9 @@ public class TablaRegistros extends javax.swing.JFrame {
 
     private void BtSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarActionPerformed
         BtSeleccionar.setEnabled(false);
-        VentanaRegistros registro = new VentanaRegistros(tipo, tb_indice);
-        registro.setVisible(true);
+        selected = Integer.parseInt(String.valueOf(TbLista.getValueAt(tb_indice, 0)));
+        this.setVisible(false);
+        
         
     }//GEN-LAST:event_BtSeleccionarActionPerformed
 
@@ -206,40 +200,7 @@ public class TablaRegistros extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtAtrasActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TablaRegistros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TablaRegistros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TablaRegistros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TablaRegistros.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TablaRegistros().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAtras;

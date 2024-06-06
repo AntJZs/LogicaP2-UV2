@@ -5,7 +5,6 @@
 package finallogica.Interfaz;
 
 import finallogica.Clases.Estudiante;
-import static finallogica.Interfaz.Inicio.IdSesion;
 import finallogica.Modelo.SolicitudGrados;
 import javax.swing.JOptionPane;
 
@@ -15,10 +14,12 @@ import javax.swing.JOptionPane;
  */
 public class IngresoEstudiante extends javax.swing.JFrame {
 
+    private int IdSesion;
     /**
      * Creates new form IngresoEstudiante
      */
-    public IngresoEstudiante() {
+    public IngresoEstudiante(int IdSesion) {
+        this.IdSesion = IdSesion;
         initComponents();
         LbSubtitulo.setText(ClasePrincipal.estudiante.get(IdSesion).getNombre() + " " + ClasePrincipal.estudiante.get(IdSesion).getApellido());
                 if (ClasePrincipal.estudiante.get(IdSesion).getEstado_graduacion().EGRESADO != Estudiante.estado_graduacion.EGRESADO) {
@@ -151,7 +152,8 @@ public class IngresoEstudiante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
-        // TODO add your handling code here:
+        new Inicio().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtSalirActionPerformed
 
     private void BtEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEstadoActionPerformed
@@ -160,7 +162,7 @@ public class IngresoEstudiante extends javax.swing.JFrame {
 
     private void BtSolicitudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSolicitudActionPerformed
 
-        if (SolicitudGrados.SolicitarGrados(Inicio.IdSesion)) {
+        if (SolicitudGrados.SolicitarGrados(IdSesion)) {
             JOptionPane.showMessageDialog(null, "Se ha colocado la solicitud.", "Estado de la solicitud", JOptionPane.INFORMATION_MESSAGE);
             return;
         } else {
@@ -171,37 +173,6 @@ public class IngresoEstudiante extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(IngresoEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(IngresoEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(IngresoEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(IngresoEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new IngresoEstudiante().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtEstado;

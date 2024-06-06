@@ -16,16 +16,16 @@ import javax.swing.JOptionPane;
 public class InicioSesion {
     public static Integer iniciarUsuario(String usuario, String codigo) {
          int IdSesion; // Esta va a ser la sesión que tendremos en el programa, que va a ser el indice del array
-        if ((codigo).equals(""+ClasePrincipal.directivo.getCodigo())) {
+        if ((codigo).equals(""+ClasePrincipal.directivo.getCodigo()) && (usuario).equalsIgnoreCase(ClasePrincipal.directivo.getNombre())) {
             IngresoDirectivo instanciaDirectivo = new IngresoDirectivo();
             instanciaDirectivo.setVisible(true);
             return 0;
             // Entra a la interfaz de directivo, no entra en un ID.            
         } else {
         for (Estudiante e : ClasePrincipal.estudiante) {
-            if ((codigo).equals(String.valueOf(e.getCodigo()))) {
+            if ((codigo).equals(String.valueOf(e.getCodigo())) && (usuario.equalsIgnoreCase(e.getNombre()))) {
                 IdSesion = ClasePrincipal.estudiante.indexOf(e);
-                IngresoEstudiante instanciaEstudiante = new IngresoEstudiante();
+                IngresoEstudiante instanciaEstudiante = new IngresoEstudiante(IdSesion);
                 instanciaEstudiante.setVisible(true);
                 return IdSesion;
                 // Entra a la interfaz de estudiante

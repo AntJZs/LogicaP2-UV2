@@ -96,7 +96,7 @@ public class VentanaRegistros extends javax.swing.JFrame {
         Info4 = new javax.swing.JLabel();
         LbDescripcion = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Propiedades");
         setIconImage(ClasePrincipal.favicon);
 

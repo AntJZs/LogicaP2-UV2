@@ -19,7 +19,7 @@ public class SolicitudGrados {
            (ClasePrincipal.estudiante.get(IdSesion).getEstado_matricula() == Estudiante.estado_matricula.ACTIVO)) {
             // Si es estudiante egresado y es activo, se genera una nueva solicitud.
             // Los datos del graduando, se almacenan en graduando y se genera una nueva solicitud si es posible.
-            ClasePrincipal.graduando.add(new Graduando(ClasePrincipal.estudiante.get(Inicio.IdSesion)));
+            ClasePrincipal.graduando.add(new Graduando(ClasePrincipal.estudiante.get(IdSesion)));
             ClasePrincipal.estudiante.get(IdSesion).setEstado_graduacion(Estudiante.estado_graduacion.PENDIENTE);
             return true;
         } else if (ClasePrincipal.estudiante.get(IdSesion).getEstado_graduacion() == (Estudiante.estado_graduacion.PENDIENTE)) {

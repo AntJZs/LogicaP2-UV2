@@ -1,10 +1,14 @@
-/*
+    /*
  * 
  */
 package finallogica.Interfaz.Registros;
 
 import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Modelo.Operaciones;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,6 +16,7 @@ import javax.swing.JOptionPane;
  * @author AntJZ
  */
 public class AsistenteModificacion extends javax.swing.JFrame {
+    private static SeleccionarRegistroPrePos registroPrePos = new SeleccionarRegistroPrePos();
     Object data;
     int index; 
     /**
@@ -55,15 +60,48 @@ public class AsistenteModificacion extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        LbEstudianteNombre2 = new javax.swing.JLabel();
+        TfEstudianteNombre2 = new javax.swing.JTextField();
         LbImg = new javax.swing.JLabel();
         LbTitulo = new javax.swing.JLabel();
         LbDescripcion = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         BtCerrar = new javax.swing.JButton();
+        PanelEstudiante = new javax.swing.JPanel();
+        LbEstudianteNombre = new javax.swing.JLabel();
+        TfEstudianteNombre = new javax.swing.JTextField();
+        LbEstudianteApellido = new javax.swing.JLabel();
+        TfEstudianteApellido = new javax.swing.JTextField();
+        LbEstudianteTipoDocumento = new javax.swing.JLabel();
+        TfEstudianteTipoDocumento = new javax.swing.JComboBox<>();
+        LbEstudianteTipoDocumento1 = new javax.swing.JLabel();
+        TfEstudianteApellido1 = new javax.swing.JTextField();
+        LbEstudianteNombre1 = new javax.swing.JLabel();
+        TfEstudianteNombre1 = new javax.swing.JTextField();
+        LbEstudianteNombre3 = new javax.swing.JLabel();
+        TfEstudianteTipoDocumento1 = new javax.swing.JComboBox<>();
+        LbEstudianteNombre4 = new javax.swing.JLabel();
+        TfEstudianteTipoDocumento2 = new javax.swing.JComboBox<>();
+        LbEstudianteNombre5 = new javax.swing.JLabel();
+        TfCarrera = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        LbEstudianteNombre2.setText("N. Teléfono");
+
+        TfEstudianteNombre2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfEstudianteNombre2ActionPerformed(evt);
+            }
+        });
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Propiedades - Modificar");
         setIconImage(ClasePrincipal.favicon);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         LbImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/decoadmin.png"))); // NOI18N
         LbImg.setText("LogoAdmin");
@@ -75,14 +113,151 @@ public class AsistenteModificacion extends javax.swing.JFrame {
         LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         LbDescripcion.setText("Tipo de dato");
 
-        jTextField1.setText("jTextField1");
-
         BtCerrar.setText("Cancelar");
         BtCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtCerrarActionPerformed(evt);
             }
         });
+
+        LbEstudianteNombre.setText("Nombre:");
+
+        TfEstudianteNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfEstudianteNombreActionPerformed(evt);
+            }
+        });
+
+        LbEstudianteApellido.setText("Apellido");
+
+        TfEstudianteApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfEstudianteApellidoActionPerformed(evt);
+            }
+        });
+
+        LbEstudianteTipoDocumento.setText("Tipo Documento:");
+
+        TfEstudianteTipoDocumento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TARJETA_IDENTIDAD", "CEDULA_CIUDADANIA" }));
+        TfEstudianteTipoDocumento.setSelectedItem(null);
+
+        LbEstudianteTipoDocumento1.setText("N. Documento:");
+
+        TfEstudianteApellido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfEstudianteApellido1ActionPerformed(evt);
+            }
+        });
+
+        LbEstudianteNombre1.setText("N. Teléfono:");
+
+        TfEstudianteNombre1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfEstudianteNombre1ActionPerformed(evt);
+            }
+        });
+
+        LbEstudianteNombre3.setText("Est. Matricula:");
+
+        TfEstudianteTipoDocumento1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACTIVO", "INACTIVO" }));
+        TfEstudianteTipoDocumento1.setSelectedItem(null);
+
+        LbEstudianteNombre4.setText("Est. Graduación:");
+
+        TfEstudianteTipoDocumento2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "EGRESADO", "PENDIENTE", "NO_EGRESADO", "GRADUADO" }));
+        TfEstudianteTipoDocumento2.setSelectedItem(null);
+
+        LbEstudianteNombre5.setText("Carrera:");
+
+        TfCarrera.setEditable(false);
+        TfCarrera.setForeground(new java.awt.Color(98, 98, 98));
+        TfCarrera.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        TfCarrera.setText("Click acá para seleccionar...");
+        TfCarrera.setActionCommand("<Not Set>");
+        TfCarrera.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TfCarreraMouseClicked(evt);
+            }
+        });
+        TfCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfCarreraActionPerformed(evt);
+            }
+        });
+        TfCarrera.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                TfCarreraPropertyChange(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelEstudianteLayout = new javax.swing.GroupLayout(PanelEstudiante);
+        PanelEstudiante.setLayout(PanelEstudianteLayout);
+        PanelEstudianteLayout.setHorizontalGroup(
+            PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelEstudianteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(LbEstudianteTipoDocumento, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addComponent(LbEstudianteApellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LbEstudianteNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(LbEstudianteTipoDocumento1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(TfEstudianteNombre)
+                    .addComponent(TfEstudianteApellido)
+                    .addComponent(TfEstudianteTipoDocumento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TfEstudianteApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelEstudianteLayout.createSequentialGroup()
+                        .addComponent(LbEstudianteNombre4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TfEstudianteTipoDocumento2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanelEstudianteLayout.createSequentialGroup()
+                        .addComponent(LbEstudianteNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TfEstudianteNombre1))
+                    .addGroup(PanelEstudianteLayout.createSequentialGroup()
+                        .addComponent(LbEstudianteNombre3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TfEstudianteTipoDocumento1, 0, 165, Short.MAX_VALUE))
+                    .addGroup(PanelEstudianteLayout.createSequentialGroup()
+                        .addComponent(LbEstudianteNombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TfCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        PanelEstudianteLayout.setVerticalGroup(
+            PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelEstudianteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfEstudianteNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbEstudianteNombre)
+                    .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(TfEstudianteNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(LbEstudianteNombre1)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfEstudianteApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbEstudianteApellido)
+                    .addComponent(LbEstudianteNombre3)
+                    .addComponent(TfEstudianteTipoDocumento1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbEstudianteTipoDocumento)
+                    .addComponent(TfEstudianteTipoDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(LbEstudianteNombre4)
+                        .addComponent(TfEstudianteTipoDocumento2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfEstudianteApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbEstudianteTipoDocumento1)
+                    .addComponent(LbEstudianteNombre5)
+                    .addComponent(TfCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -92,20 +267,21 @@ public class AsistenteModificacion extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                        .addGap(149, 149, 149))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                .addGap(149, 149, 149))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LbDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbDescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(102, 102, 102)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(BtCerrar)
-                .addContainerGap())
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(BtCerrar))
+                            .addComponent(PanelEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,9 +293,9 @@ public class AsistenteModificacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(LbTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PanelEstudiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BtCerrar)
                 .addContainerGap())
         );
@@ -131,6 +307,54 @@ public class AsistenteModificacion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_BtCerrarActionPerformed
 
+    private void TfEstudianteNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEstudianteNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfEstudianteNombreActionPerformed
+
+    private void TfEstudianteApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEstudianteApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfEstudianteApellidoActionPerformed
+
+    private void TfEstudianteApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEstudianteApellido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfEstudianteApellido1ActionPerformed
+
+    private void TfEstudianteNombre1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEstudianteNombre1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfEstudianteNombre1ActionPerformed
+
+    private void TfEstudianteNombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfEstudianteNombre2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfEstudianteNombre2ActionPerformed
+
+    private void TfCarreraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TfCarreraMouseClicked
+         registroPrePos.setVisible(true);
+        registroPrePos.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentHidden(ComponentEvent e) {
+                TfCarrera.setText(String.valueOf(registroPrePos.selected));
+                 registroPrePos.dispose();
+            }
+        });
+                
+    
+    }//GEN-LAST:event_TfCarreraMouseClicked
+
+    private void TfCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfCarreraActionPerformed
+  
+    }//GEN-LAST:event_TfCarreraActionPerformed
+
+    private void TfCarreraPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_TfCarreraPropertyChange
+       
+    }//GEN-LAST:event_TfCarreraPropertyChange
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        
+        
+    }//GEN-LAST:event_formWindowGainedFocus
+    private void otherFormWindowHidden(java.awt.event.WindowEvent evt) {
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -169,8 +393,26 @@ public class AsistenteModificacion extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCerrar;
     private javax.swing.JLabel LbDescripcion;
+    private javax.swing.JLabel LbEstudianteApellido;
+    private javax.swing.JLabel LbEstudianteNombre;
+    private javax.swing.JLabel LbEstudianteNombre1;
+    private javax.swing.JLabel LbEstudianteNombre2;
+    private javax.swing.JLabel LbEstudianteNombre3;
+    private javax.swing.JLabel LbEstudianteNombre4;
+    private javax.swing.JLabel LbEstudianteNombre5;
+    private javax.swing.JLabel LbEstudianteTipoDocumento;
+    private javax.swing.JLabel LbEstudianteTipoDocumento1;
     private javax.swing.JLabel LbImg;
     private javax.swing.JLabel LbTitulo;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel PanelEstudiante;
+    private javax.swing.JTextField TfCarrera;
+    private javax.swing.JTextField TfEstudianteApellido;
+    private javax.swing.JTextField TfEstudianteApellido1;
+    private javax.swing.JTextField TfEstudianteNombre;
+    private javax.swing.JTextField TfEstudianteNombre1;
+    private javax.swing.JTextField TfEstudianteNombre2;
+    private javax.swing.JComboBox<String> TfEstudianteTipoDocumento;
+    private javax.swing.JComboBox<String> TfEstudianteTipoDocumento1;
+    private javax.swing.JComboBox<String> TfEstudianteTipoDocumento2;
     // End of variables declaration//GEN-END:variables
 }

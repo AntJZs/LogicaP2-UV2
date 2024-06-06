@@ -1,4 +1,4 @@
-package finallogica.Modelo.BasesDeDatos;
+    package finallogica.Modelo.BasesDeDatos;
 
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;

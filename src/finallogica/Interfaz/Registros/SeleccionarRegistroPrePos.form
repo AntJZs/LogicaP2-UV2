@@ -53,7 +53,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="BtSeleccionar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="LbEstado" pref="385" max="32767" attributes="0"/>
+                              <Component id="LbEstado" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="BtAtras" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -161,7 +161,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="SansSerif" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Panel Directivo"/>
+        <Property name="text" type="java.lang.String" value="Seleccionar Carrera"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LbImg">
@@ -191,11 +191,9 @@
     <Component class="javax.swing.JComboBox" name="CbConsulta">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Estudiantes"/>
-            <StringItem index="1" value="Directivos"/>
-            <StringItem index="2" value="Pregrados"/>
-            <StringItem index="3" value="Posgrados"/>
+          <StringArray count="2">
+            <StringItem index="0" value="Pregrados"/>
+            <StringItem index="1" value="Posgrados"/>
           </StringArray>
         </Property>
         <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
@@ -220,7 +218,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="LbEstado">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Selecciona una entrada de la tabla para ver sus propiedades y acciones."/>
+        <Property name="text" type="java.lang.String" value="Selecciona una entrada de la tabla para modificar el c&#xf3;digo del estudiante."/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
             <EtchetBorder/>

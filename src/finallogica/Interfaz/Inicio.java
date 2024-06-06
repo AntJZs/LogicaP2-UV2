@@ -13,7 +13,7 @@ import java.awt.Toolkit;
  * @author gerso
  */
 public class Inicio extends javax.swing.JFrame {
-    public static int IdSesion;
+    private static int IdSesion;
     
     /**
      * Creates new form Inicio

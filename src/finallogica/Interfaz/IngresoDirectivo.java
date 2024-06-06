@@ -37,7 +37,6 @@ public class IngresoDirectivo extends javax.swing.JFrame {
         LbImg = new javax.swing.JLabel();
         PanelOperaciones = new javax.swing.JPanel();
         BtModificar = new javax.swing.JButton();
-        BtMostrar = new javax.swing.JButton();
         BtValidar = new javax.swing.JButton();
         BtEstadisticas = new javax.swing.JButton();
         BtSalir = new javax.swing.JButton();
@@ -69,9 +68,6 @@ public class IngresoDirectivo extends javax.swing.JFrame {
             }
         });
 
-        BtMostrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        BtMostrar.setText("Mostrar registros");
-
         BtValidar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         BtValidar.setText("Validar solicitudes");
 
@@ -85,10 +81,7 @@ public class IngresoDirectivo extends javax.swing.JFrame {
             .addGroup(PanelOperacionesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelOperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelOperacionesLayout.createSequentialGroup()
-                        .addComponent(BtModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(PanelOperacionesLayout.createSequentialGroup()
                         .addComponent(BtValidar, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -98,9 +91,7 @@ public class IngresoDirectivo extends javax.swing.JFrame {
         PanelOperacionesLayout.setVerticalGroup(
             PanelOperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelOperacionesLayout.createSequentialGroup()
-                .addGroup(PanelOperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                    .addComponent(BtMostrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(BtModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelOperacionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BtValidar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
@@ -162,7 +153,6 @@ public class IngresoDirectivo extends javax.swing.JFrame {
     }//GEN-LAST:event_BtModificarActionPerformed
 
     private void BtSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSalirActionPerformed
-        Inicio.IdSesion = -1;
         new Inicio().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtSalirActionPerformed
@@ -205,7 +195,6 @@ public class IngresoDirectivo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtEstadisticas;
     private javax.swing.JButton BtModificar;
-    private javax.swing.JButton BtMostrar;
     private javax.swing.JButton BtSalir;
     private javax.swing.JButton BtValidar;
     private javax.swing.JLabel LbDescripcion;
