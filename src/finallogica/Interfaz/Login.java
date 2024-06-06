@@ -137,6 +137,7 @@ public class Login extends javax.swing.JFrame {
         BtnIngresar.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 18)); // NOI18N
         BtnIngresar.setForeground(new java.awt.Color(255, 255, 255));
         BtnIngresar.setText("Ingresar");
+        BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtnIngresar.setBorder(null);
         BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -144,7 +145,6 @@ public class Login extends javax.swing.JFrame {
                 BtnIngresarMouseClicked(evt);
             }
         });
-        BtnIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         LbRegistrarse.setFont(new java.awt.Font("Yu Gothic UI", 0, 14)); // NOI18N
         LbRegistrarse.setForeground(new java.awt.Color(0, 39, 229));

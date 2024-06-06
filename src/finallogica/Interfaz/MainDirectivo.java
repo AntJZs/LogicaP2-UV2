@@ -36,35 +36,39 @@ public class MainDirectivo extends javax.swing.JFrame {
         LbSalirSistema = new javax.swing.JLabel();
         LbMinimizar = new javax.swing.JLabel();
         LbBarraSuperior = new javax.swing.JLabel();
+        LbImagenDirectivo = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         LbBienvenido = new javax.swing.JLabel();
         LbDirectivo = new javax.swing.JLabel();
-        LbImagenDirectivo = new javax.swing.JLabel();
         SeparadorPanel = new javax.swing.JSeparator();
         BtCerrarSesion = new javax.swing.JButton();
         JpPanelInicio = new javax.swing.JPanel();
         LbImgPanelInicio = new javax.swing.JLabel();
         LbPanelInicio = new javax.swing.JLabel();
+        JpRegistros = new javax.swing.JPanel();
+        LbImgRegistros = new javax.swing.JLabel();
+        LbRegistros = new javax.swing.JLabel();
         JpSolicitudes = new javax.swing.JPanel();
         LbImgSolicitudes = new javax.swing.JLabel();
         LbSolicitudes = new javax.swing.JLabel();
-        JpInformacion = new javax.swing.JPanel();
-        LbImgInformacion = new javax.swing.JLabel();
-        LbInformacion = new javax.swing.JLabel();
+        JpEstadisticas = new javax.swing.JPanel();
+        LbImgEstadisticas = new javax.swing.JLabel();
+        LbEstadisticas = new javax.swing.JLabel();
         TbPanelDirectivo = new javax.swing.JTabbedPane();
         JpInicio = new javax.swing.JPanel();
         LbImgInfo = new javax.swing.JLabel();
+        JpTablaRegistros = new javax.swing.JPanel();
+        LbBienvenido1 = new javax.swing.JLabel();
         JpTablaSolicitudes = new javax.swing.JPanel();
         LbBienvenido2 = new javax.swing.JLabel();
         JpTablaEstadisticas = new javax.swing.JPanel();
         LbBienvenido3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
         setAutoRequestFocus(false);
+        setIconImage(ClasePrincipal.favicon);
         setUndecorated(true);
         setResizable(false);
-        setIconImage(ClasePrincipal.favicon);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LbPanel.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
@@ -94,6 +98,9 @@ public class MainDirectivo extends javax.swing.JFrame {
         LbBarraSuperior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/Fondo3.png"))); // NOI18N
         getContentPane().add(LbBarraSuperior, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 810, 70));
 
+        LbImagenDirectivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/directivo_1.png"))); // NOI18N
+        getContentPane().add(LbImagenDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,10 +115,7 @@ public class MainDirectivo extends javax.swing.JFrame {
         LbDirectivo.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
         LbDirectivo.setForeground(new java.awt.Color(0, 204, 255));
         LbDirectivo.setText("Directivo");
-        jPanel4.add(LbDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 190, -1, 20));
-
-        LbImagenDirectivo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/directivo_1.png"))); // NOI18N
-        jPanel4.add(LbImagenDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(62, 20, -1, -1));
+        jPanel4.add(LbDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 20));
 
         SeparadorPanel.setForeground(new java.awt.Color(0, 51, 255));
         jPanel4.add(SeparadorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 240, 240, 10));
@@ -173,6 +177,50 @@ public class MainDirectivo extends javax.swing.JFrame {
 
         jPanel4.add(JpPanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 230, -1));
 
+        JpRegistros.setBackground(new java.awt.Color(255, 255, 255));
+        JpRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpRegistros.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                JpRegistrosMouseMoved(evt);
+            }
+        });
+        JpRegistros.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JpRegistrosMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JpRegistrosMouseExited(evt);
+            }
+        });
+
+        LbImgRegistros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/compartir.png"))); // NOI18N
+
+        LbRegistros.setBackground(new java.awt.Color(255, 255, 255));
+        LbRegistros.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbRegistros.setForeground(new java.awt.Color(102, 102, 102));
+        LbRegistros.setText("Registros");
+
+        javax.swing.GroupLayout JpRegistrosLayout = new javax.swing.GroupLayout(JpRegistros);
+        JpRegistros.setLayout(JpRegistrosLayout);
+        JpRegistrosLayout.setHorizontalGroup(
+            JpRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpRegistrosLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(LbImgRegistros)
+                .addGap(29, 29, 29)
+                .addComponent(LbRegistros)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+        JpRegistrosLayout.setVerticalGroup(
+            JpRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpRegistrosLayout.createSequentialGroup()
+                .addComponent(LbImgRegistros, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 6, Short.MAX_VALUE))
+            .addComponent(LbRegistros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel4.add(JpRegistros, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 230, -1));
+
         JpSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
         JpSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JpSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,65 +255,95 @@ public class MainDirectivo extends javax.swing.JFrame {
             .addComponent(LbSolicitudes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        jPanel4.add(JpSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 230, -1));
+        jPanel4.add(JpSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 230, -1));
 
-        JpInformacion.setBackground(new java.awt.Color(255, 255, 255));
-        JpInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JpInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
+        JpEstadisticas.setBackground(new java.awt.Color(255, 255, 255));
+        JpEstadisticas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpEstadisticas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JpInformacionMouseClicked(evt);
+                JpEstadisticasMouseClicked(evt);
             }
         });
 
-        LbImgInformacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/ojo.png"))); // NOI18N
+        LbImgEstadisticas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/ojo.png"))); // NOI18N
 
-        LbInformacion.setBackground(new java.awt.Color(255, 255, 255));
-        LbInformacion.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        LbInformacion.setForeground(new java.awt.Color(102, 102, 102));
-        LbInformacion.setText("Información");
+        LbEstadisticas.setBackground(new java.awt.Color(255, 255, 255));
+        LbEstadisticas.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
+        LbEstadisticas.setForeground(new java.awt.Color(102, 102, 102));
+        LbEstadisticas.setText("Estadísticas");
 
-        javax.swing.GroupLayout JpInformacionLayout = new javax.swing.GroupLayout(JpInformacion);
-        JpInformacion.setLayout(JpInformacionLayout);
-        JpInformacionLayout.setHorizontalGroup(
-            JpInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpInformacionLayout.createSequentialGroup()
+        javax.swing.GroupLayout JpEstadisticasLayout = new javax.swing.GroupLayout(JpEstadisticas);
+        JpEstadisticas.setLayout(JpEstadisticasLayout);
+        JpEstadisticasLayout.setHorizontalGroup(
+            JpEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpEstadisticasLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
-                .addComponent(LbImgInformacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(LbInformacion)
-                .addContainerGap())
+                .addComponent(LbImgEstadisticas)
+                .addGap(28, 28, 28)
+                .addComponent(LbEstadisticas)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
-        JpInformacionLayout.setVerticalGroup(
-            JpInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JpInformacionLayout.createSequentialGroup()
-                .addGroup(JpInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(LbImgInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LbInformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+        JpEstadisticasLayout.setVerticalGroup(
+            JpEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JpEstadisticasLayout.createSequentialGroup()
+                .addGroup(JpEstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(LbImgEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 6, Short.MAX_VALUE))
         );
 
-        jPanel4.add(JpInformacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 400, 230, -1));
+        jPanel4.add(JpEstadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 230, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 580));
 
         JpInicio.setBackground(new java.awt.Color(255, 255, 255));
 
-        LbImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/fondodirectivo.png"))); // NOI18N
+        LbImgInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/inicio.png"))); // NOI18N
 
         javax.swing.GroupLayout JpInicioLayout = new javax.swing.GroupLayout(JpInicio);
         JpInicio.setLayout(JpInicioLayout);
         JpInicioLayout.setHorizontalGroup(
             JpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LbImgInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 810, Short.MAX_VALUE)
+            .addComponent(LbImgInfo, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
         );
         JpInicioLayout.setVerticalGroup(
             JpInicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JpInicioLayout.createSequentialGroup()
                 .addComponent(LbImgInfo)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         TbPanelDirectivo.addTab("tab1", JpInicio);
+
+        JpTablaRegistros.setBackground(new java.awt.Color(255, 255, 255));
+
+        LbBienvenido1.setBackground(new java.awt.Color(0, 51, 255));
+        LbBienvenido1.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
+        LbBienvenido1.setForeground(new java.awt.Color(0, 51, 255));
+        LbBienvenido1.setText("Registros");
+
+        javax.swing.GroupLayout JpTablaRegistrosLayout = new javax.swing.GroupLayout(JpTablaRegistros);
+        JpTablaRegistros.setLayout(JpTablaRegistrosLayout);
+        JpTablaRegistrosLayout.setHorizontalGroup(
+            JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 810, Short.MAX_VALUE)
+            .addGroup(JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaRegistrosLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido1)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        JpTablaRegistrosLayout.setVerticalGroup(
+            JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 535, Short.MAX_VALUE)
+            .addGroup(JpTablaRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JpTablaRegistrosLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(LbBienvenido1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        TbPanelDirectivo.addTab("tab2", JpTablaRegistros);
 
         JpTablaSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -355,16 +433,28 @@ public class MainDirectivo extends javax.swing.JFrame {
     }//GEN-LAST:event_JpPanelInicioMouseExited
 
     private void JpSolicitudesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpSolicitudesMouseClicked
-        TbPanelDirectivo.setSelectedIndex(1);
+        TbPanelDirectivo.setSelectedIndex(2);
     }//GEN-LAST:event_JpSolicitudesMouseClicked
 
-    private void JpInformacionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpInformacionMouseClicked
-        TbPanelDirectivo.setSelectedIndex(2);
-    }//GEN-LAST:event_JpInformacionMouseClicked
+    private void JpEstadisticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpEstadisticasMouseClicked
+        TbPanelDirectivo.setSelectedIndex(3);
+    }//GEN-LAST:event_JpEstadisticasMouseClicked
+
+    private void JpRegistrosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpRegistrosMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JpRegistrosMouseMoved
+
+    private void JpRegistrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpRegistrosMouseClicked
+        TbPanelDirectivo.setSelectedIndex(1);
+    }//GEN-LAST:event_JpRegistrosMouseClicked
+
+    private void JpRegistrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JpRegistrosMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JpRegistrosMouseExited
 
     private void LbSalirSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LbSalirSistemaMouseClicked
        int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Desea salir del sistema?","Exit", dialog);
+        int result = JOptionPane.showConfirmDialog(rootPane, "Desea salir del sistema?","Exit", dialog);
         if(result ==0){
             System.exit(0);
         }
@@ -399,6 +489,34 @@ public class MainDirectivo extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -410,27 +528,32 @@ public class MainDirectivo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCerrarSesion;
-    private javax.swing.JPanel JpInformacion;
+    private javax.swing.JPanel JpEstadisticas;
     private javax.swing.JPanel JpInicio;
     private javax.swing.JPanel JpPanelInicio;
+    private javax.swing.JPanel JpRegistros;
     private javax.swing.JPanel JpSolicitudes;
     private javax.swing.JPanel JpTablaEstadisticas;
+    private javax.swing.JPanel JpTablaRegistros;
     private javax.swing.JPanel JpTablaSolicitudes;
     private javax.swing.JLabel LbBarraSuperior;
     private javax.swing.JLabel LbBienvenido;
+    private javax.swing.JLabel LbBienvenido1;
     private javax.swing.JLabel LbBienvenido2;
     private javax.swing.JLabel LbBienvenido3;
     private javax.swing.JLabel LbCuadrados;
     private javax.swing.JLabel LbDirectivo;
+    private javax.swing.JLabel LbEstadisticas;
     private javax.swing.JLabel LbImagenDirectivo;
+    private javax.swing.JLabel LbImgEstadisticas;
     private javax.swing.JLabel LbImgInfo;
-    private javax.swing.JLabel LbImgInformacion;
     private javax.swing.JLabel LbImgPanelInicio;
+    private javax.swing.JLabel LbImgRegistros;
     private javax.swing.JLabel LbImgSolicitudes;
-    private javax.swing.JLabel LbInformacion;
     private javax.swing.JLabel LbMinimizar;
     private javax.swing.JLabel LbPanel;
     private javax.swing.JLabel LbPanelInicio;
+    private javax.swing.JLabel LbRegistros;
     private javax.swing.JLabel LbSalirSistema;
     private javax.swing.JLabel LbSolicitudes;
     private javax.swing.JSeparator SeparadorPanel;
