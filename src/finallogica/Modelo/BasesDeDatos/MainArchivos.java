@@ -4,6 +4,7 @@ import finallogica.Clases.Carrera;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Modelo.BasesDeDatos.Bd_Pregrado;
 import finallogica.Clases.Fijas.Pregrado;
+import finallogica.Modelo.Operaciones;
 import java.util.LinkedList;
 
 /**
@@ -25,7 +26,7 @@ public class MainArchivos {
         pregrado = db_pregrado.obtener();
         posgrado = db_posgrado.obtener();
         // PROFIT!...
- 
+
 
     }
 

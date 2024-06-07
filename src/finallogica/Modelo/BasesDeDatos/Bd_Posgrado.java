@@ -42,11 +42,25 @@ public class Bd_Posgrado {
 
     }
 
-    public boolean registararEstudiante(Posgrado p) {
+    public boolean registrar(Posgrado p) {
         Archivo archivo = new Archivo(this.nombre);
         return archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getTipo_posgrado()+ ";" + p.getFacultades());
     }
 
+
+        public boolean actualizar(LinkedList<Posgrado> posgrado) {
+            boolean chk = true;
+            this.borrarTodo();
+        Archivo archivo = new Archivo(this.nombre);
+            for (Posgrado p : posgrado) {
+                chk &= archivo.registrar(p.getCodigo() + ";" + p.getNombre() + ";" + p.getTipo_posgrado()+ ";" + p.getFacultades());
+            }
+            if (chk == false) {
+                System.out.println("Bd_Posgrado.actualizar: Uno o más posgrados fallaron en ser registrados, revise el archivo y la lógica del código...");
+            }
+        return chk;
+    }
+    
     public boolean borrarTodo() {
         Archivo archivo = new Archivo(this.nombre);
         return archivo.borrarContenido();

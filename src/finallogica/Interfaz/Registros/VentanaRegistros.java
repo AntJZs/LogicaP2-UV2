@@ -234,14 +234,14 @@ public class VentanaRegistros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCerrarActionPerformed
-        this.dispose();
+        this.setVisible(false);
     }//GEN-LAST:event_BtCerrarActionPerformed
 
     private void BtEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEliminarActionPerformed
          int r = JOptionPane.showConfirmDialog(null, "Está seguro que quiere eliminar el estudiante?\nEsto puede dejar datos huérfanos...", "Confirmación", JOptionPane.YES_NO_OPTION);
         if (r == 0) {
             if (Operaciones.eliminarRegistro(who)) {
-            this.dispose();
+            this.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "El estudiante no pudo ser eliminado.\nEs todo lo que sé...", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -252,7 +252,7 @@ public class VentanaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_BtEliminarActionPerformed
 
     private void BtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtModificarActionPerformed
-        AsistenteModificacion mod = new AsistenteModificacion(who);
+        Asistente mod = new Asistente(who);
         mod.setVisible(true);
     }//GEN-LAST:event_BtModificarActionPerformed
 

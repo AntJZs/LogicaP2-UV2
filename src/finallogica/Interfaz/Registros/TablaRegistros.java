@@ -7,6 +7,9 @@ import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Interfaz.Modelos.Mod_Estudiante;
 import finallogica.Interfaz.Modelos.Mod_Posgrado;
 import finallogica.Interfaz.Modelos.Mod_Pregrado;
+import finallogica.Modelo.Operaciones;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.table.DefaultTableModel;
@@ -50,6 +53,7 @@ public class TablaRegistros extends javax.swing.JFrame {
         LbDescripcion = new javax.swing.JLabel();
         LbConsulta = new javax.swing.JLabel();
         CbConsulta = new javax.swing.JComboBox<>();
+        BtAgregar = new javax.swing.JButton();
         BtSeleccionar = new javax.swing.JButton();
         LbEstado = new javax.swing.JLabel();
         BtAtras = new javax.swing.JButton();
@@ -96,6 +100,13 @@ public class TablaRegistros extends javax.swing.JFrame {
             }
         });
 
+        BtAgregar.setText("Agregar");
+        BtAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtAgregarActionPerformed(evt);
+            }
+        });
+
         BtSeleccionar.setText("Confirmar");
         BtSeleccionar.setEnabled(false);
         BtSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +140,8 @@ public class TablaRegistros extends javax.swing.JFrame {
                                 .addComponent(LbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(CbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BtAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -156,7 +168,8 @@ public class TablaRegistros extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LbConsulta))))
+                            .addComponent(LbConsulta)
+                            .addComponent(BtAgregar))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -171,8 +184,48 @@ public class TablaRegistros extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CbConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbConsultaActionPerformed
-        //Condicional :)
-        tipo = CbConsulta.getItemAt(CbConsulta.getSelectedIndex());
+        actualizarTablas();
+    }//GEN-LAST:event_CbConsultaActionPerformed
+
+    private void BtSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarActionPerformed
+        BtSeleccionar.setEnabled(false);
+        VentanaRegistros registro = new VentanaRegistros(tipo, tb_indice);
+        registro.setVisible(true);
+                registro.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentHidden(ComponentEvent e) {
+                 registro.dispose();
+                 actualizarTablas();
+            }
+        });
+        
+    }//GEN-LAST:event_BtSeleccionarActionPerformed
+
+    private void TbListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbListaMouseClicked
+        // Este código va a ver si se hizo click a la tabla, y depronto, que elemento se seleccionó.        
+    }//GEN-LAST:event_TbListaMouseClicked
+
+    private void BtAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtrasActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BtAtrasActionPerformed
+
+    private void BtAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAgregarActionPerformed
+        if (CbConsulta.getSelectedIndex() >= 0) {
+        Asistente agregar = new Asistente(CbConsulta.getSelectedIndex());
+        agregar.setVisible(true);
+                        agregar.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentHidden(ComponentEvent e) {
+                 agregar.dispose();
+                 actualizarTablas();
+            }
+        });
+        
+        }
+    }//GEN-LAST:event_BtAgregarActionPerformed
+
+    private void actualizarTablas() {
+                tipo = CbConsulta.getItemAt(CbConsulta.getSelectedIndex());
         switch (CbConsulta.getSelectedIndex()) {
             case 0:
                 TbLista.setModel(new Mod_Estudiante(ClasePrincipal.estudiante));
@@ -186,26 +239,8 @@ public class TablaRegistros extends javax.swing.JFrame {
                 break;
             case 3:
                 TbLista.setModel(new Mod_Posgrado(ClasePrincipal.posgrado));
-               
-
         }
-    }//GEN-LAST:event_CbConsultaActionPerformed
-
-    private void BtSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeleccionarActionPerformed
-        BtSeleccionar.setEnabled(false);
-        VentanaRegistros registro = new VentanaRegistros(tipo, tb_indice);
-        registro.setVisible(true);
-        
-    }//GEN-LAST:event_BtSeleccionarActionPerformed
-
-    private void TbListaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TbListaMouseClicked
-        // Este código va a ver si se hizo click a la tabla, y depronto, que elemento se seleccionó.        
-    }//GEN-LAST:event_TbListaMouseClicked
-
-    private void BtAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAtrasActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_BtAtrasActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -242,6 +277,7 @@ public class TablaRegistros extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtAgregar;
     private javax.swing.JButton BtAtras;
     private javax.swing.JButton BtSeleccionar;
     private javax.swing.JComboBox<String> CbConsulta;

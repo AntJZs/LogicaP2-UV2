@@ -7,14 +7,7 @@ import finallogica.Clases.Director;
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
-import finallogica.Clases.Fijas.TrabajoDeGrado;
-import finallogica.Clases.Graduando;
 import finallogica.Interfaz.ClasePrincipal;
-import static finallogica.Interfaz.ClasePrincipal.director;
-import static finallogica.Interfaz.ClasePrincipal.estudiante;
-import static finallogica.Interfaz.ClasePrincipal.posgrado;
-import static finallogica.Interfaz.ClasePrincipal.pregrado;
-import static finallogica.Interfaz.ClasePrincipal.tg;
 import finallogica.Modelo.BasesDeDatos.Bd_Director;
 import finallogica.Modelo.BasesDeDatos.Bd_Estudiante;
 import finallogica.Modelo.BasesDeDatos.Bd_Graduando;
@@ -50,12 +43,16 @@ public class Operaciones {
     
     
     public static void cargarBasesDeDatos() {
-        pregrado = pregrados_s.obtener();
-        posgrado = posgrados_s.obtener();
-        tg = trabajos_s.obtener();
-        director =  directores_s.obtener();
-        estudiante = estudiantes_s.obtener();
+        ClasePrincipal.pregrado = pregrados_s.obtener();
+        ClasePrincipal.posgrado = posgrados_s.obtener();
+        // tg = trabajos_s.obtener();
+        // director =  directores_s.obtener();
+        ClasePrincipal.estudiante = estudiantes_s.obtener();
         
+    }
+    public static boolean actualizarBasesDeDatos() {
+    System.out.println("Actualizando base de datos...");
+    return estudiantes_s.actualizar(ClasePrincipal.estudiante);
     }
     // No existe buscarEstudiante, ya que mientras esté con la sesión abierta
     // no se va a necesitar.
@@ -102,13 +99,37 @@ public class Operaciones {
         System.out.println("Operaciones.buscarIndice: No se ha encontrado el dato. Compruebe los datos disponibles y si el objeto es válido.");
         return -1;
     }
-    
-    
+        public static Object buscarCarrera(int cod_carrera) {
+                  for (Pregrado pregrado : ClasePrincipal.pregrado) {
+                    if (pregrado.isPregrado(cod_carrera)) {
+                        return pregrado;
+                    }
+                }
+                for (Posgrado posgrado : ClasePrincipal.posgrado) {
+                    if (posgrado.isPosgrado(cod_carrera)) {
+                        return posgrado;
+                        }
+                }
+                return null;
+    }
+        /*
+     ADICIÓN
+    Propias del programa, usadas por clases de la interfaz. Detecta el tipo de dato
+    y lo agrega al final de la lista.
+        */
+
+        public static void agregarEstudiante(Object o) {
+            if(o != null) {
+                ClasePrincipal.estudiante.add(Estudiante.class.cast(o)); 
+            }
+            else {
+                System.out.println("Operaciones.agregarEstudiante: El estudiante ingresado es invalido.");
+                System.out.println(o);
+            }
+        }
         /*
      ELIMINACIÓN
-    Estas son propias del prorgama, por lo que deben ser usadas por separado.
-    Para hacer esta operación conjunta, se tiene que hacer una sobrecarga de
-    constructores, y tener en cuenta la clase principal...
+    Estas son propias del prorgama, por lo que deben ser usadas por separado..
     
     NOTA: Esto es experimental, y si se borran datos, estos no deben aparecer
     en otros usuarios, ya que si se intentan buscar al principio de la ejecución
@@ -128,8 +149,7 @@ public class Operaciones {
     public static boolean eliminarRegistro(Object o) {
         if (ClasePrincipal.estudiante.contains(o)) {
             ClasePrincipal.estudiante.remove(o);
-            System.out.println("Actualizando base de datos...");
-            return estudiantes_s.actualizar(estudiante);
+            return actualizarBasesDeDatos();
         } else if (ClasePrincipal.tg.contains(o)) {
             ClasePrincipal.tg.remove(o);
             return true;
@@ -146,4 +166,30 @@ public class Operaciones {
         System.out.println("Operaciones.Registros: No se pudo eliminar, revisa el tipo de dato e intenta de nuevo.");
         return false;
     }
+    
+    // Otras clases interesantes
+    // Verifica si un String se puede convertir en entero
+    public static boolean isInteger(String str) {
+    if (str == null) {
+        return false;
+    }
+    int length = str.length();
+    if (length == 0) {
+        return false;
+    }
+    int i = 0;
+    if (str.charAt(0) == '-') {
+        if (length == 1) {
+            return false;
+        }
+        i = 1;
+    }
+    for (; i < length; i++) {
+        char c = str.charAt(i);
+        if (c < '0' || c > '9') {
+            return false;
+        }
+    }
+    return true;
+}
 }
