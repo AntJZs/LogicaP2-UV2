@@ -50,10 +50,24 @@ public class Bd_Estudiante {
         return estudiantes;
 
     }
-    public boolean registrarFacultad(Estudiante e) {
+    public boolean registrar(Estudiante e) {
         Archivo archivo = new Archivo(this.nombre);
         return archivo.registrar(e.getCodigo() + ";" + e.getNombre() + ";" + e.getApellido() + ";" + e.getTipo_documento() + ";" + e.getNumero_documento() + ";" + e.getNumero_telefono() + ";" + e.getEstado_matricula() + ";" + e.getEstado_graduacion() + ";" + e.getCarrera().getCodigo());
     }
+    
+        public boolean actualizar(LinkedList<Estudiante> estudiante) {
+            boolean chk = true;
+            this.borrarTodo();
+        Archivo archivo = new Archivo(this.nombre);
+            for (Estudiante e : estudiante) {
+                chk &= archivo.registrar(e.getCodigo() + ";" + e.getNombre() + ";" + e.getApellido() + ";" + e.getTipo_documento() + ";" + e.getNumero_documento() + ";" + e.getNumero_telefono() + ";" + e.getEstado_matricula() + ";" + e.getEstado_graduacion() + ";" + e.getCarrera().getCodigo());
+            }
+            if (chk == false) {
+                System.out.println("Bd_Estudiante.actualizar: Uno o más estudiantes fallaron en ser registrados, revise el archivo y la lógica del código...");
+            }
+        return chk;
+    }
+    
 
     public boolean borrarTodo() {
         Archivo archivo = new Archivo(this.nombre);

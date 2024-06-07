@@ -12,14 +12,16 @@ import javax.swing.JOptionPane;
  * @author Maria Camila
  */
 public class MainEstudiante extends javax.swing.JFrame {
-
+    protected int IdSesion;
     /**
      * Creates new form Main
      */
-    public MainEstudiante() {
+    public MainEstudiante(int IdSesion) {
+        this.IdSesion = IdSesion;
         this.setUndecorated(true);
         initComponents();
         this.setLocationRelativeTo(null);
+        LbSubltiulo.setText(ClasePrincipal.estudiante.get(IdSesion).getNombre() + " " + ClasePrincipal.estudiante.get(IdSesion).getApellido());
     }
 
     /**
@@ -38,8 +40,8 @@ public class MainEstudiante extends javax.swing.JFrame {
         LbBarraSuperior = new javax.swing.JLabel();
         LbImagenEstudiante = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        LbBienvenido = new javax.swing.JLabel();
-        LbDirectivo = new javax.swing.JLabel();
+        LbTitulo = new javax.swing.JLabel();
+        LbSubltiulo = new javax.swing.JLabel();
         SeparadorPanel = new javax.swing.JSeparator();
         BtCerrarSesion = new javax.swing.JButton();
         JpPanelInicio = new javax.swing.JPanel();
@@ -56,6 +58,7 @@ public class MainEstudiante extends javax.swing.JFrame {
         LbImgInfo = new javax.swing.JLabel();
         JpTablaSolicitudes = new javax.swing.JPanel();
         LbBienvenido2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         JpTablaEstadisticas = new javax.swing.JPanel();
         LbBienvenido3 = new javax.swing.JLabel();
 
@@ -99,17 +102,17 @@ public class MainEstudiante extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LbBienvenido.setBackground(new java.awt.Color(0, 51, 255));
-        LbBienvenido.setFont(new java.awt.Font("Yu Gothic UI", 1, 36)); // NOI18N
-        LbBienvenido.setForeground(new java.awt.Color(0, 51, 255));
-        LbBienvenido.setText("Bienvenido");
-        jPanel4.add(LbBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 150, -1, 30));
+        LbTitulo.setBackground(new java.awt.Color(0, 51, 255));
+        LbTitulo.setFont(LbTitulo.getFont().deriveFont(LbTitulo.getFont().getStyle() | java.awt.Font.BOLD, LbTitulo.getFont().getSize()+21));
+        LbTitulo.setForeground(new java.awt.Color(0, 51, 255));
+        LbTitulo.setText("Bienvenido");
+        jPanel4.add(LbTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 150, -1, 30));
 
-        LbDirectivo.setBackground(new java.awt.Color(0, 153, 255));
-        LbDirectivo.setFont(new java.awt.Font("Yu Gothic UI", 1, 24)); // NOI18N
-        LbDirectivo.setForeground(new java.awt.Color(0, 204, 255));
-        LbDirectivo.setText("Estudiante");
-        jPanel4.add(LbDirectivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 20));
+        LbSubltiulo.setBackground(new java.awt.Color(0, 153, 255));
+        LbSubltiulo.setFont(LbSubltiulo.getFont().deriveFont(LbSubltiulo.getFont().getStyle() | java.awt.Font.BOLD, LbSubltiulo.getFont().getSize()+9));
+        LbSubltiulo.setForeground(new java.awt.Color(0, 204, 255));
+        LbSubltiulo.setText("Estudiante");
+        jPanel4.add(LbSubltiulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, 20));
 
         SeparadorPanel.setForeground(new java.awt.Color(0, 51, 255));
         jPanel4.add(SeparadorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 240, 240, 10));
@@ -119,7 +122,7 @@ public class MainEstudiante extends javax.swing.JFrame {
         BtCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         BtCerrarSesion.setText("Cerrar Sesión");
         BtCerrarSesion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        BtCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtCerrarSesionActionPerformed(evt);
@@ -128,7 +131,7 @@ public class MainEstudiante extends javax.swing.JFrame {
         jPanel4.add(BtCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 480, 130, 44));
 
         JpPanelInicio.setBackground(new java.awt.Color(255, 255, 255));
-        JpPanelInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpPanelInicio.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JpPanelInicio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 JpPanelInicioMouseMoved(evt);
@@ -172,7 +175,7 @@ public class MainEstudiante extends javax.swing.JFrame {
         jPanel4.add(JpPanelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 230, -1));
 
         JpSolicitudes.setBackground(new java.awt.Color(255, 255, 255));
-        JpSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpSolicitudes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JpSolicitudes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpSolicitudesMouseClicked(evt);
@@ -193,7 +196,7 @@ public class MainEstudiante extends javax.swing.JFrame {
             .addGroup(JpSolicitudesLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(LbImgSolicitudes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LbSolicitudes)
                 .addGap(21, 21, 21))
         );
@@ -208,7 +211,7 @@ public class MainEstudiante extends javax.swing.JFrame {
         jPanel4.add(JpSolicitudes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 230, -1));
 
         JpInformacion.setBackground(new java.awt.Color(255, 255, 255));
-        JpInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JpInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         JpInformacion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 JpInformacionMouseClicked(evt);
@@ -229,7 +232,7 @@ public class MainEstudiante extends javax.swing.JFrame {
             .addGroup(JpInformacionLayout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(LbImgInformacion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LbInformacion)
                 .addContainerGap())
         );
@@ -273,25 +276,37 @@ public class MainEstudiante extends javax.swing.JFrame {
         LbBienvenido2.setForeground(new java.awt.Color(0, 51, 255));
         LbBienvenido2.setText("Solicitudes");
 
+        jButton1.setFont(new java.awt.Font("Cantarell", 0, 24)); // NOI18N
+        jButton1.setText("Realizar Solicitud");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JpTablaSolicitudesLayout = new javax.swing.GroupLayout(JpTablaSolicitudes);
         JpTablaSolicitudes.setLayout(JpTablaSolicitudesLayout);
         JpTablaSolicitudesLayout.setHorizontalGroup(
             JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 810, Short.MAX_VALUE)
-            .addGroup(JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(LbBienvenido2)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
+                .addGroup(JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(LbBienvenido2))
+                    .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
         JpTablaSolicitudesLayout.setVerticalGroup(
             JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 535, Short.MAX_VALUE)
-            .addGroup(JpTablaSolicitudesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(JpTablaSolicitudesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(LbBienvenido2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JpTablaSolicitudesLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(LbBienvenido2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(379, Short.MAX_VALUE))
         );
 
         TbPanelDirectivo.addTab("tab3", JpTablaSolicitudes);
@@ -336,7 +351,6 @@ public class MainEstudiante extends javax.swing.JFrame {
     }//GEN-LAST:event_LbMinimizarMouseClicked
 
     private void BtCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCerrarSesionActionPerformed
-        Inicio.IdSesion = -1;
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtCerrarSesionActionPerformed
@@ -364,52 +378,14 @@ public class MainEstudiante extends javax.swing.JFrame {
     private void LbSalirSistemaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LbSalirSistemaMouseClicked
        int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null, "Desea salir del sistema?","Exit", dialog);
-        if(result ==0){
+        if(result ==0 ){
             System.exit(0);
         }
     }//GEN-LAST:event_LbSalirSistemaMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainEstudiante().setVisible(true);
-            }
-        });
-    }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtCerrarSesion;
@@ -420,11 +396,9 @@ public class MainEstudiante extends javax.swing.JFrame {
     private javax.swing.JPanel JpTablaEstadisticas;
     private javax.swing.JPanel JpTablaSolicitudes;
     private javax.swing.JLabel LbBarraSuperior;
-    private javax.swing.JLabel LbBienvenido;
     private javax.swing.JLabel LbBienvenido2;
     private javax.swing.JLabel LbBienvenido3;
     private javax.swing.JLabel LbCuadrados;
-    private javax.swing.JLabel LbDirectivo;
     private javax.swing.JLabel LbImagenEstudiante;
     private javax.swing.JLabel LbImgInfo;
     private javax.swing.JLabel LbImgInformacion;
@@ -436,8 +410,11 @@ public class MainEstudiante extends javax.swing.JFrame {
     private javax.swing.JLabel LbPanelInicio;
     private javax.swing.JLabel LbSalirSistema;
     private javax.swing.JLabel LbSolicitudes;
+    private javax.swing.JLabel LbSubltiulo;
+    private javax.swing.JLabel LbTitulo;
     private javax.swing.JSeparator SeparadorPanel;
     private javax.swing.JTabbedPane TbPanelDirectivo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }

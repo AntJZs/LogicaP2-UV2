@@ -10,12 +10,32 @@ import finallogica.Clases.Fijas.Pregrado;
 import finallogica.Clases.Fijas.TrabajoDeGrado;
 import finallogica.Clases.Graduando;
 import finallogica.Interfaz.ClasePrincipal;
+import static finallogica.Interfaz.ClasePrincipal.director;
+import static finallogica.Interfaz.ClasePrincipal.estudiante;
+import static finallogica.Interfaz.ClasePrincipal.posgrado;
+import static finallogica.Interfaz.ClasePrincipal.pregrado;
+import static finallogica.Interfaz.ClasePrincipal.tg;
+import finallogica.Modelo.BasesDeDatos.Bd_Director;
+import finallogica.Modelo.BasesDeDatos.Bd_Estudiante;
+import finallogica.Modelo.BasesDeDatos.Bd_Graduando;
+import finallogica.Modelo.BasesDeDatos.Bd_Posgrado;
+import finallogica.Modelo.BasesDeDatos.Bd_Pregrado;
+import finallogica.Modelo.BasesDeDatos.Bd_TrabajoDeGrado;
 
 /**
  *
  * @author AntJZ
  */
 public class Operaciones {
+    
+    private static Bd_Pregrado pregrados_s = new Bd_Pregrado("PREGRADOS.csv");
+    private static Bd_Posgrado posgrados_s = new Bd_Posgrado("POSGRADOS.csv");
+    private static Bd_TrabajoDeGrado trabajos_s = new Bd_TrabajoDeGrado("TRABAJOSDEGRADO.csv");
+    private static Bd_Director directores_s = new Bd_Director("DIRECTORES.csv");
+    private static Bd_Estudiante estudiantes_s = new Bd_Estudiante("ESTUDIANTES.csv");
+    // private static Bd_Graduando graduandos_s = new Bd_Graduando("GRADUANDOS.csv");
+    
+    
     /*
      BÚSQUEDA
     Estos buscan dentro de todos los LinkedList que existen en ClasePrincipal,
@@ -28,6 +48,15 @@ public class Operaciones {
     
     // public static Estudiante buscarEstudiante(int codigo)
     
+    
+    public static void cargarBasesDeDatos() {
+        pregrado = pregrados_s.obtener();
+        posgrado = posgrados_s.obtener();
+        tg = trabajos_s.obtener();
+        director =  directores_s.obtener();
+        estudiante = estudiantes_s.obtener();
+        
+    }
     // No existe buscarEstudiante, ya que mientras esté con la sesión abierta
     // no se va a necesitar.
     
@@ -99,7 +128,8 @@ public class Operaciones {
     public static boolean eliminarRegistro(Object o) {
         if (ClasePrincipal.estudiante.contains(o)) {
             ClasePrincipal.estudiante.remove(o);
-            return true;
+            System.out.println("Actualizando base de datos...");
+            return estudiantes_s.actualizar(estudiante);
         } else if (ClasePrincipal.tg.contains(o)) {
             ClasePrincipal.tg.remove(o);
             return true;

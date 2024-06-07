@@ -6,11 +6,10 @@ package finallogica.Interfaz;
 
 import javax.swing.JOptionPane;
 import AppPackage.AnimationClass;
-import static finallogica.Interfaz.Inicio.IdSesion;
 import finallogica.Modelo.InicioSesion;
 
 public class Login extends javax.swing.JFrame {
-
+    private int IdSesion;
     /**
      * Creates new form Login
      */
@@ -480,8 +479,14 @@ public class Login extends javax.swing.JFrame {
 
     private void BtnIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BtnIngresarMouseClicked
         IdSesion = InicioSesion.iniciarUsuario(TfNombre.getText(), TfCodigo.getText());
-        if (IdSesion >= 0) {
-            this.setVisible(false);
+        if (IdSesion == 0) {
+            MainDirectivo instanciaDirectivo = new MainDirectivo();
+            instanciaDirectivo.setVisible(true);
+            this.dispose();
+        } else if (IdSesion > 0) {
+            MainEstudiante instanciaEstudiante = new MainEstudiante(IdSesion);
+            instanciaEstudiante.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_BtnIngresarMouseClicked
 

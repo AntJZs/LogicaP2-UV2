@@ -415,7 +415,6 @@ public class MainDirectivo extends javax.swing.JFrame {
     }//GEN-LAST:event_LbMinimizarMouseClicked
 
     private void BtCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCerrarSesionActionPerformed
-        Inicio.IdSesion = -1;
         new Login().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_BtCerrarSesionActionPerformed

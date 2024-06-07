@@ -8,6 +8,7 @@ import finallogica.Clases.Fijas.Pregrado;
 import finallogica.Clases.Fijas.TrabajoDeGrado;
 import finallogica.Clases.Graduando;
 import finallogica.Modelo.BasesDeDatos.*;
+import finallogica.Modelo.Operaciones;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.LinkedList;
@@ -37,18 +38,8 @@ public class ClasePrincipal {
             CARGAR BASES DE DATOS.
           Se cargan primero las listas en CSV, para así tener las relaciones hechas.
         */
+        Operaciones.cargarBasesDeDatos();
         
-        Bd_Pregrado pregrados_s = new Bd_Pregrado("PREGRADOS.csv");
-        pregrado = pregrados_s.obtener();
-        Bd_Posgrado posgrados_s = new Bd_Posgrado("POSGRADOS.csv");
-        posgrado = posgrados_s.obtener();
-        Bd_TrabajoDeGrado trabajos_s = new Bd_TrabajoDeGrado("TRABAJOSDEGRADO.csv");
-        tg = trabajos_s.obtener();
-        Bd_Director directores_s = new Bd_Director("DIRECTORES.csv");
-        director =  directores_s.obtener();
-        Bd_Estudiante estudiantes_s = new Bd_Estudiante("ESTUDIANTES.csv");
-        estudiante = estudiantes_s.obtener();
-        Bd_Graduando graduandos_s = new Bd_Graduando("GRADUANDOS.csv");
         // graduando = graduandos_s.obtener(); // A implementar...
         
         // El codigo va a ser siempre 604802 por conveniencia, luego se va a permitir cambiar.
