@@ -8,7 +8,7 @@ import finallogica.Clases.Fijas.TrabajoDeGrado;
 import java.util.Date;
 
 /**
- *
+ *  DESPRECIADO. No entra en el trabajo, puede ser trabajado en un futuro.
  * @author lpagc
  *  Esta clase equivale a la segunda parte de la graduación
  *  que es la solicitud, la cual necesita estos datos.
@@ -17,18 +17,6 @@ import java.util.Date;
  *  
  *  Extiende a estudiante, pero no necesariamente.
  *  
- *  Aquí se utiliza date, para las fechas, investigar un poco.
- *  
- *  Atributos:
- *  Deudas
- *  (double)    deudas_biblioteca   
- *  (double)    mora_universidad    
- *  (double)    deudas_universidad  
- *  (Trabajo)   trabajo_grado
- *  (double)    deudas_academicas
- *  (String)    certificado_ingles
- *  (int)       saber_pro
- * 
  * 
  * 
  */

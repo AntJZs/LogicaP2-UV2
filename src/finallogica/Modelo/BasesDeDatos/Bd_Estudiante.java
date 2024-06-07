@@ -56,6 +56,7 @@ public class Bd_Estudiante {
             boolean chk = true;
             this.borrarTodo();
         Archivo archivo = new Archivo(this.nombre);
+       
             for (Estudiante e : estudiante) {
                 chk &= archivo.registrar(e.getCodigo() + ";" + e.getNombre() + ";" + e.getApellido() + ";" + e.getTipo_documento() + ";" + e.getNumero_documento() + ";" + e.getNumero_telefono() + ";" + e.getEstado_matricula() + ";" + e.getEstado_graduacion() + ";" + e.getCarrera().getCodigo());
             }

@@ -8,6 +8,8 @@ import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
 import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Modelo.Operaciones;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -252,8 +254,16 @@ public class VentanaRegistros extends javax.swing.JFrame {
     }//GEN-LAST:event_BtEliminarActionPerformed
 
     private void BtModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtModificarActionPerformed
-        Asistente mod = new Asistente(who);
+        Asistente mod = new Asistente(index, who);
         mod.setVisible(true);
+         mod.addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentHidden(ComponentEvent e) {
+                Operaciones.actualizarBasesDeDatos();
+                mod.dispose();
+            }
+        });
+         this.dispose();
     }//GEN-LAST:event_BtModificarActionPerformed
 
     /**

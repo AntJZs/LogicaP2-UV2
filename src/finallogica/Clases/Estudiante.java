@@ -163,7 +163,9 @@ public class Estudiante {
         this.carrera = carrera;
     }
     
-    
+    public void regenerarCodigo() {
+        this.codigo = id(numero_telefono+numero_documento);
+    }
     
     public String[] toTableString() {
         String[] lista = {String.valueOf(this.codigo), this.getNombre(), this.getApellido(), String.valueOf(this.getTipo_documento()), String.valueOf(this.getNumero_documento()),

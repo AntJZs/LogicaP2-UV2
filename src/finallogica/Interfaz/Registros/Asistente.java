@@ -3,6 +3,7 @@
  */
 package finallogica.Interfaz.Registros;
 
+import finallogica.Clases.Carrera;
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
@@ -22,6 +23,7 @@ public class Asistente extends javax.swing.JFrame {
     private static SeleccionarRegistroPrePos registroPrePos = new SeleccionarRegistroPrePos();
     Object data;
     int index; 
+    int data_index;
     /**
      *  ASISTENTE.
      * Esta clase crea una nueva entrada, dependiendo del tipo de dato.
@@ -34,6 +36,7 @@ public class Asistente extends javax.swing.JFrame {
      * 
      */
      public Asistente(int index) {
+        this.index = index;
         initComponents();
         LbTitulo.setText("Agregar Datos");
         // Averiguar que tipo de dato es
@@ -71,12 +74,13 @@ public class Asistente extends javax.swing.JFrame {
         }
     }
     
-    public Asistente(Object data) {
+    public Asistente(int data_index, Object data) {
         this.data = data;
+        this.data_index = data_index;
         initComponents();
         // Averiguar que tipo de dato es
-        index = Operaciones.buscarIndice(data);
-        switch (Operaciones.buscarTipo(data)) {
+        index = Operaciones.buscarTipo(data);
+        switch (index) {
             case 0:
                 // Estudiantes
                 TpTipo.remove(PanelPosgrado);
@@ -138,7 +142,21 @@ public class Asistente extends javax.swing.JFrame {
         LbEstudianteCarrera = new javax.swing.JLabel();
         TfEstudianteCarrera = new javax.swing.JTextField();
         PanelPregrado = new javax.swing.JPanel();
+        TfPregradoCodigo = new javax.swing.JTextField();
+        LbPregradoCodigo = new javax.swing.JLabel();
+        LbPregradoNombre = new javax.swing.JLabel();
+        TfPregradoNombre = new javax.swing.JTextField();
+        LbPregradoFacultad = new javax.swing.JLabel();
+        CbPregradoFacultad = new javax.swing.JComboBox<>();
         PanelPosgrado = new javax.swing.JPanel();
+        LbPosgradoCodigo = new javax.swing.JLabel();
+        TfPosgradoCodigo = new javax.swing.JTextField();
+        LbPosgradoNombre = new javax.swing.JLabel();
+        TfPosgradoNombre = new javax.swing.JTextField();
+        LbPosgradoFacultad = new javax.swing.JLabel();
+        CbPosgradoFacultad = new javax.swing.JComboBox<>();
+        LbPosgradoTipoEspecialización = new javax.swing.JLabel();
+        CbPosgradoTipoEspecialización = new javax.swing.JComboBox<>();
 
         LbEstudianteNombre2.setText("N. Teléfono");
 
@@ -283,7 +301,7 @@ public class Asistente extends javax.swing.JFrame {
                 .addGroup(PanelEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TfEstudianteEstMatricula, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(TfEstudianteEstGraduacion, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(TfEstudianteCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(TfEstudianteCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
                     .addComponent(TfEstudianteNumTelefono))
                 .addContainerGap())
         );
@@ -319,28 +337,144 @@ public class Asistente extends javax.swing.JFrame {
 
         TpTipo.addTab("Estudiante", PanelEstudiante);
 
+        TfPregradoCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfPregradoCodigoActionPerformed(evt);
+            }
+        });
+
+        LbPregradoCodigo.setText("Código:");
+
+        LbPregradoNombre.setText("Nombre:");
+
+        TfPregradoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfPregradoNombreActionPerformed(evt);
+            }
+        });
+
+        LbPregradoFacultad.setText("Facultad:");
+
+        CbPregradoFacultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CIENCIAS_POLITICAS_JURIDICAS", "CIENCIAS_EMPRESARIALES", "CIENCIAS_HUMANAS_ED", "INGENIERIAS" }));
+        CbPregradoFacultad.setSelectedItem(null);
+
         javax.swing.GroupLayout PanelPregradoLayout = new javax.swing.GroupLayout(PanelPregrado);
         PanelPregrado.setLayout(PanelPregradoLayout);
         PanelPregradoLayout.setHorizontalGroup(
             PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGroup(PanelPregradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PanelPregradoLayout.createSequentialGroup()
+                        .addComponent(LbPregradoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TfPregradoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelPregradoLayout.createSequentialGroup()
+                        .addGroup(PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LbPregradoFacultad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(PanelPregradoLayout.createSequentialGroup()
+                                .addComponent(LbPregradoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 7, Short.MAX_VALUE)))
+                        .addGroup(PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelPregradoLayout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(TfPregradoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPregradoLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CbPregradoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(274, Short.MAX_VALUE))
         );
         PanelPregradoLayout.setVerticalGroup(
             PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
+            .addGroup(PanelPregradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfPregradoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbPregradoCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfPregradoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbPregradoNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPregradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbPregradoFacultad)
+                    .addComponent(CbPregradoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         TpTipo.addTab("Pregrado", PanelPregrado);
+
+        LbPosgradoCodigo.setText("Código:");
+
+        TfPosgradoCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfPosgradoCodigoActionPerformed(evt);
+            }
+        });
+
+        LbPosgradoNombre.setText("Nombre:");
+
+        TfPosgradoNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TfPosgradoNombreActionPerformed(evt);
+            }
+        });
+
+        LbPosgradoFacultad.setText("Facultad:");
+
+        CbPosgradoFacultad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CIENCIAS_POLITICAS_JURIDICAS", "CIENCIAS_EMPRESARIALES", "CIENCIAS_HUMANAS_ED", "INGENIERIAS" }));
+        CbPosgradoFacultad.setSelectedItem(null);
+
+        LbPosgradoTipoEspecialización.setText("Tipo Especialización:");
+
+        CbPosgradoTipoEspecialización.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MAESTRIA", "ESPECIALIZACION" }));
+        CbPosgradoTipoEspecialización.setSelectedItem(null);
 
         javax.swing.GroupLayout PanelPosgradoLayout = new javax.swing.GroupLayout(PanelPosgrado);
         PanelPosgrado.setLayout(PanelPosgradoLayout);
         PanelPosgradoLayout.setHorizontalGroup(
             PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 607, Short.MAX_VALUE)
+            .addGroup(PanelPosgradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPosgradoLayout.createSequentialGroup()
+                        .addComponent(LbPosgradoCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(80, 80, 80)
+                        .addComponent(TfPosgradoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelPosgradoLayout.createSequentialGroup()
+                        .addComponent(LbPosgradoNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TfPosgradoNombre))
+                    .addGroup(PanelPosgradoLayout.createSequentialGroup()
+                        .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LbPosgradoFacultad, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                            .addComponent(LbPosgradoTipoEspecialización, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CbPosgradoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CbPosgradoTipoEspecialización, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(279, 279, 279))
         );
         PanelPosgradoLayout.setVerticalGroup(
             PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 153, Short.MAX_VALUE)
+            .addGroup(PanelPosgradoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfPosgradoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbPosgradoCodigo))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TfPosgradoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LbPosgradoNombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbPosgradoFacultad)
+                    .addComponent(CbPosgradoFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PanelPosgradoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LbPosgradoTipoEspecialización)
+                    .addComponent(CbPosgradoTipoEspecialización, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         TpTipo.addTab("Posgrado", PanelPosgrado);
@@ -353,17 +487,16 @@ public class Asistente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(TpTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(LbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
                         .addGap(149, 149, 149)
                         .addComponent(LbImg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(BtAlmacenar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtCerrar))
-                            .addComponent(TpTipo, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addContainerGap())))
+                        .addComponent(BtAlmacenar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtCerrar))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,31 +569,99 @@ public class Asistente extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void BtAlmacenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtAlmacenarActionPerformed
-        if ((data == null) && (comprobarAdicion(index))) {
-            Object estudiante = null;
+           switch (index) {
+               // Si se está llenando un campo de estudiante. hay dos cosas que pueden
+               // pasar: 1. Esté agregando (primer if) o esté modificando (else)
+            case 0:
+            // Comprueba si los datos están bien & que no hayan datos en la clase.
+            if ((data == null) && (comprobarAdicion(this.index))) {
+                // Se crea un objeto estudiante, no sabemos si tiene un pregrado
+                // o posgrado en su constructor.
+                Object estudiante = null;
+                // Se comprueba si la carrera a agregar tiene instancia en pregrado.
+                // si tiene, se crea con pregrado, si no, por omisión se toma posgrado.
                 if (Pregrado.class.isInstance(Operaciones.buscarCarrera(Integer.parseInt(TfEstudianteCarrera.getText())))) {
-            estudiante = new Estudiante(TfEstudianteNombre.getText(),TfEstudianteApellido.getText(),
-            Estudiante.tipo_documento.valueOf(TfEstudianteTipoDocumento.getItemAt(TfEstudianteTipoDocumento.getSelectedIndex())),
-            TfEstudianteNumDocumento.getText(), TfEstudianteNumTelefono.getText(), Pregrado.class.cast(Operaciones.buscarCarrera(Integer.parseInt(TfEstudianteCarrera.getText()))),
-            Estudiante.estado_matricula.valueOf(TfEstudianteEstMatricula.getItemAt(TfEstudianteEstMatricula.getSelectedIndex())),
-            Estudiante.estado_graduacion.valueOf(TfEstudianteEstGraduacion.getItemAt(TfEstudianteEstGraduacion.getSelectedIndex())));
-            }else {
-            estudiante = new Estudiante(TfEstudianteNombre.getText(),TfEstudianteApellido.getText(),
-            Estudiante.tipo_documento.valueOf(TfEstudianteTipoDocumento.getItemAt(TfEstudianteTipoDocumento.getSelectedIndex())),
-            TfEstudianteNumDocumento.getText(), TfEstudianteNumTelefono.getText(), Posgrado.class.cast(Operaciones.buscarCarrera(Integer.parseInt(TfEstudianteCarrera.getText()))),
-            Estudiante.estado_matricula.valueOf(TfEstudianteEstMatricula.getItemAt(TfEstudianteEstMatricula.getSelectedIndex())),
-            Estudiante.estado_graduacion.valueOf(TfEstudianteEstGraduacion.getItemAt(TfEstudianteEstGraduacion.getSelectedIndex())));
+                    estudiante = new Estudiante(TfEstudianteNombre.getText(),TfEstudianteApellido.getText(),
+                    Estudiante.tipo_documento.valueOf(TfEstudianteTipoDocumento.getItemAt(TfEstudianteTipoDocumento.getSelectedIndex())),
+                    TfEstudianteNumDocumento.getText(), TfEstudianteNumTelefono.getText(), Pregrado.class.cast(Operaciones.buscarCarrera(Integer.parseInt(TfEstudianteCarrera.getText()))),
+                    Estudiante.estado_matricula.valueOf(TfEstudianteEstMatricula.getItemAt(TfEstudianteEstMatricula.getSelectedIndex())),
+                    Estudiante.estado_graduacion.valueOf(TfEstudianteEstGraduacion.getItemAt(TfEstudianteEstGraduacion.getSelectedIndex())));
+            }   else {
+                    estudiante = new Estudiante(TfEstudianteNombre.getText(),TfEstudianteApellido.getText(),
+                    Estudiante.tipo_documento.valueOf(TfEstudianteTipoDocumento.getItemAt(TfEstudianteTipoDocumento.getSelectedIndex())),
+                    TfEstudianteNumDocumento.getText(), TfEstudianteNumTelefono.getText(), Posgrado.class.cast(Operaciones.buscarCarrera(Integer.parseInt(TfEstudianteCarrera.getText()))),
+                    Estudiante.estado_matricula.valueOf(TfEstudianteEstMatricula.getItemAt(TfEstudianteEstMatricula.getSelectedIndex())),
+                    Estudiante.estado_graduacion.valueOf(TfEstudianteEstGraduacion.getItemAt(TfEstudianteEstGraduacion.getSelectedIndex())));
                 }
-            Operaciones.agregarEstudiante(estudiante);
-            Operaciones.actualizarBasesDeDatos();
-            this.setVisible(false);
-        } else {
-            
-        }
+                Operaciones.agregarRegistro(estudiante);
+                Operaciones.actualizarBasesDeDatos();
+                this.setVisible(false);
+            } else {
+                // Modifica datos ya existentes de un estudiante.
+                    Estudiante e = Estudiante.class.cast(data);
+                    // Se miran los campos modificados
+                    if (TfEstudianteNombre.getText().trim().length() != 0 ){e.setNombre(TfEstudianteNombre.getText());}
+                    if (TfEstudianteApellido.getText().trim().length() != 0 ){e.setApellido(TfEstudianteApellido.getText());}
+                    if ((TfEstudianteNumDocumento.getText().trim().length() != 0) && (Operaciones.isInteger(TfEstudianteNumDocumento.getText()))){e.setNumero_documento(TfEstudianteNumDocumento.getText());}
+                    if ((TfEstudianteNumTelefono.getText().trim().length() != 0) && (Operaciones.isInteger(TfEstudianteNumTelefono.getText()))){e.setNumero_telefono(TfEstudianteNumTelefono.getText());}
+                    if (TfEstudianteTipoDocumento.getSelectedIndex() >= 0){e.setTipo_documento(Estudiante.tipo_documento.valueOf(TfEstudianteTipoDocumento.getItemAt(TfEstudianteTipoDocumento.getSelectedIndex())));}
+                    if (TfEstudianteEstMatricula.getSelectedIndex() >= 0){e.setEstado_matricula(Estudiante.estado_matricula.valueOf(TfEstudianteEstMatricula.getItemAt(TfEstudianteEstMatricula.getSelectedIndex())));}
+                    if (TfEstudianteEstGraduacion.getSelectedIndex() >= 0){e.setEstado_graduacion(Estudiante.estado_graduacion.valueOf(TfEstudianteEstGraduacion.getItemAt(TfEstudianteEstGraduacion.getSelectedIndex())));}
+                    if ((Operaciones.isInteger(TfEstudianteCarrera.getText()))) {e.setCarrera(Carrera.class.cast(Operaciones.buscarCarrera(Integer.parseInt(TfEstudianteCarrera.getText()))));}
+                    // Se regenera el código, ya que cambia cuando se cambian ciertos campos
+                    e.regenerarCodigo();
+                    // Se asigna el estudiante modificado en el lugar del estudiante sin modificar
+                    ClasePrincipal.estudiante.set(data_index, e);
+                    this.setVisible(false);
+                
+            }
+                break;
+            case 2:
+                if ((data == null) && (comprobarAdicion(index))) {
+                    Operaciones.agregarRegistro(new Pregrado(Integer.parseInt(TfPregradoCodigo.getText()), 
+                    TfPregradoNombre.getText(), Carrera.facultades.valueOf(CbPregradoFacultad.getItemAt(CbPregradoFacultad.getSelectedIndex()))));
+                    Operaciones.actualizarBasesDeDatos();
+                    this.setVisible(false);
+                } else {
+                    // Pregrado p = Pregrado.class.cast(data);
+                    // if ((TfPregradoCodigo.getText().trim().length() != 0) && (Operaciones.isInteger(TfPregradoCodigo.getText()))) {p.setCodigo(Integer.parseInt(TfPregradoCodigo.getText()));}
+                    // if ((TfPregradoNombre.getText().trim().length() != 0)) {p.setNombre(TfPregradoNombre.getText());}
+                    JOptionPane.showMessageDialog(null, "La modificación de carreras está deshabilitada, ya que puede incurrir en estudiantes con carreras inválidas.", "Información", JOptionPane.INFORMATION_MESSAGE);
+                }
+                break;
+            case 3:
+                if ((data == null) && (comprobarAdicion(index))) {
+                    Operaciones.agregarRegistro(new Posgrado(Integer.parseInt(TfPosgradoCodigo.getText()), 
+                    TfPosgradoNombre.getText(),
+                    Posgrado.tipo.valueOf(CbPosgradoTipoEspecialización.getItemAt(CbPosgradoTipoEspecialización.getSelectedIndex())),
+                    Posgrado.facultades.valueOf(CbPosgradoFacultad.getItemAt(CbPosgradoFacultad.getSelectedIndex()))));
+                    Operaciones.actualizarBasesDeDatos();
+                    this.setVisible(false);
+                }
+                else {
+                        JOptionPane.showMessageDialog(null, "La modificación de carreras está deshabilitada, ya que puede incurrir en estudiantes con carreras inválidas.", "Información", JOptionPane.INFORMATION_MESSAGE);
+                        }
+           }
     }//GEN-LAST:event_BtAlmacenarActionPerformed
+
+    private void TfPregradoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfPregradoCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfPregradoCodigoActionPerformed
+
+    private void TfPregradoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfPregradoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfPregradoNombreActionPerformed
+
+    private void TfPosgradoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfPosgradoNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfPosgradoNombreActionPerformed
+
+    private void TfPosgradoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TfPosgradoCodigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TfPosgradoCodigoActionPerformed
     private boolean comprobarAdicion(int index){
         boolean check = true;
-        switch (index) {
+        switch(index) {
             /* Comprueba que los campos sean válidos, funciona de esta manera:
             
             1. Comprueba que ningun campo este vacio, y que tenga un valor valido.
@@ -486,7 +687,44 @@ public class Asistente extends javax.swing.JFrame {
                 
                 }
             } else {
-                    JOptionPane.showMessageDialog(null, "No se ha guardado el estudiante. Revise que todos los campos esten llenos y sean validos, e intentelo de nuevo.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "No se ha guardado el estudiante. Revise que todos los campos esten llenos y sean validos, e inténtelo de nuevo.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+                
+                }
+                break;
+            case 2:
+                // Pregrados, comprobar campos para añadir pregrado: IWP
+                check &=(TfPregradoCodigo.getText().trim().length() != 0);
+                check &=(TfPregradoNombre.getText().trim().length() != 0);
+                check &=(CbPregradoFacultad.getSelectedIndex() >= 0);
+                if (check) {
+                    check &=(Operaciones.isInteger(TfPregradoCodigo.getText()));
+                    if (check) {
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se ha guardado el pregrado. Revise que el código sea numérico e inténtelo de nuevo.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+                
+                    } 
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se ha guardado el pregrado. Revise que no hayan campos vacios e inténtelo de nuevo.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+                
+                }
+                break;
+            case 3:
+                // Posgrados, comprobar campos para añadir posgrado: IWP
+                check &=(TfPosgradoCodigo.getText().trim().length() != 0);
+                check &=(TfPosgradoNombre.getText().trim().length() != 0);
+                check &=(CbPosgradoFacultad.getSelectedIndex() >= 0);
+                check &=(CbPosgradoTipoEspecialización.getSelectedIndex() >= 0);
+                if (check) {
+                    check &=(Operaciones.isInteger(TfPosgradoCodigo.getText()));
+                    if (check) {
+                        return true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "No se ha guardado el posgrado. Revise que el código sea numérico e inténtelo de nuevo.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
+                
+                    } 
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se ha guardado el posgrado. Revise que no hayan campos vacios e inténtelo de nuevo.", "Error al guardar", JOptionPane.ERROR_MESSAGE);
                 
                 }
                 break;
@@ -527,7 +765,7 @@ public class Asistente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Asistente(null).setVisible(true);
+                new Asistente(0, null).setVisible(true);
             }
         });
     }
@@ -535,6 +773,9 @@ public class Asistente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtAlmacenar;
     private javax.swing.JButton BtCerrar;
+    private javax.swing.JComboBox<String> CbPosgradoFacultad;
+    private javax.swing.JComboBox<String> CbPosgradoTipoEspecialización;
+    private javax.swing.JComboBox<String> CbPregradoFacultad;
     private javax.swing.JLabel LbEstudianteApellido;
     private javax.swing.JLabel LbEstudianteCarrera;
     private javax.swing.JLabel LbEstudianteEstGraduacion;
@@ -545,6 +786,13 @@ public class Asistente extends javax.swing.JFrame {
     private javax.swing.JLabel LbEstudianteNumTelefono;
     private javax.swing.JLabel LbEstudianteTipoDocumento;
     private javax.swing.JLabel LbImg;
+    private javax.swing.JLabel LbPosgradoCodigo;
+    private javax.swing.JLabel LbPosgradoFacultad;
+    private javax.swing.JLabel LbPosgradoNombre;
+    private javax.swing.JLabel LbPosgradoTipoEspecialización;
+    private javax.swing.JLabel LbPregradoCodigo;
+    private javax.swing.JLabel LbPregradoFacultad;
+    private javax.swing.JLabel LbPregradoNombre;
     private javax.swing.JLabel LbTitulo;
     private javax.swing.JPanel PanelEstudiante;
     private javax.swing.JPanel PanelPosgrado;
@@ -558,6 +806,10 @@ public class Asistente extends javax.swing.JFrame {
     private javax.swing.JTextField TfEstudianteNumDocumento;
     private javax.swing.JTextField TfEstudianteNumTelefono;
     private javax.swing.JComboBox<String> TfEstudianteTipoDocumento;
+    private javax.swing.JTextField TfPosgradoCodigo;
+    private javax.swing.JTextField TfPosgradoNombre;
+    private javax.swing.JTextField TfPregradoCodigo;
+    private javax.swing.JTextField TfPregradoNombre;
     private javax.swing.JTabbedPane TpTipo;
     // End of variables declaration//GEN-END:variables
 }

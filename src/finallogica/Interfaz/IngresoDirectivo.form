@@ -95,7 +95,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Lorem ipsum dolor sit amet..."/>
+        <Property name="text" type="java.lang.String" value="Modifique datos de los registros..."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="LbImg">
@@ -168,6 +168,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Validar solicitudes"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="BtEstadisticas">
@@ -176,6 +177,7 @@
               <Font name="Segoe UI" size="18" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Mostrar estad&#xed;sticas"/>
+            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
       </SubComponents>

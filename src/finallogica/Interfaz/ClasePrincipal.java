@@ -40,8 +40,6 @@ public class ClasePrincipal {
         */
         Operaciones.cargarBasesDeDatos();
         
-
-        
         // graduando = graduandos_s.obtener(); // A implementar...
         
         // El codigo va a ser siempre 604802 por conveniencia, luego se va a permitir cambiar.

@@ -7,6 +7,7 @@ import finallogica.Clases.Director;
 import finallogica.Clases.Estudiante;
 import finallogica.Clases.Fijas.Posgrado;
 import finallogica.Clases.Fijas.Pregrado;
+import finallogica.Clases.Fijas.TrabajoDeGrado;
 import finallogica.Interfaz.ClasePrincipal;
 import finallogica.Modelo.BasesDeDatos.Bd_Director;
 import finallogica.Modelo.BasesDeDatos.Bd_Estudiante;
@@ -118,6 +119,19 @@ public class Operaciones {
     y lo agrega al final de la lista.
         */
 
+        public static void agregarRegistro(Object o) {
+            if (Estudiante.class.isInstance(o)) {
+                ClasePrincipal.estudiante.add(Estudiante.class.cast(o)); 
+            } else if (TrabajoDeGrado.class.isInstance(o)) {
+                ClasePrincipal.tg.add(TrabajoDeGrado.class.cast(o)); 
+            } else if (Pregrado.class.isInstance(o)) {
+                ClasePrincipal.pregrado.add(Pregrado.class.cast(o)); 
+            } else if (Posgrado.class.isInstance(o)) {
+                ClasePrincipal.posgrado.add(Posgrado.class.cast(o)); 
+            } else {
+                System.out.println("Operaciones.agregarEstudiante: El objeto ingresado es invalido.");
+            }
+        }
         public static void agregarEstudiante(Object o) {
             if(o != null) {
                 ClasePrincipal.estudiante.add(Estudiante.class.cast(o)); 
@@ -148,19 +162,19 @@ public class Operaciones {
     
     public static boolean eliminarRegistro(Object o) {
         if (ClasePrincipal.estudiante.contains(o)) {
-            ClasePrincipal.estudiante.remove(o);
+            ClasePrincipal.estudiante.remove(Estudiante.class.cast(o));
             return actualizarBasesDeDatos();
         } else if (ClasePrincipal.tg.contains(o)) {
-            ClasePrincipal.tg.remove(o);
+            ClasePrincipal.tg.remove(TrabajoDeGrado.class.cast(o));
             return true;
         } else if (ClasePrincipal.pregrado.contains(o)) {
-            ClasePrincipal.pregrado.remove(o);
+            ClasePrincipal.pregrado.remove(Pregrado.class.cast(o));
             return true;
         } else if (ClasePrincipal.posgrado.contains(o)) {
-            ClasePrincipal.posgrado.remove(o);
+            ClasePrincipal.posgrado.remove(Posgrado.class.cast(o));
             return true;
         } else if (ClasePrincipal.director.contains(o)) {
-            ClasePrincipal.director.remove(o);
+            ClasePrincipal.director.remove(Director.class.cast(o));
             return true;
         }
         System.out.println("Operaciones.Registros: No se pudo eliminar, revisa el tipo de dato e intenta de nuevo.");

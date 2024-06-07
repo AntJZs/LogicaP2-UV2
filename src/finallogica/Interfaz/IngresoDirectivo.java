@@ -51,7 +51,7 @@ public class IngresoDirectivo extends javax.swing.JFrame {
         LbTitulo.setText("Panel Directivo");
 
         LbDescripcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        LbDescripcion.setText("Lorem ipsum dolor sit amet...");
+        LbDescripcion.setText("Modifique datos de los registros...");
 
         LbImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/finallogica/Interfaz/img/decoadmin.png"))); // NOI18N
         LbImg.setText("LogoAdmin");
@@ -70,9 +70,11 @@ public class IngresoDirectivo extends javax.swing.JFrame {
 
         BtValidar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         BtValidar.setText("Validar solicitudes");
+        BtValidar.setEnabled(false);
 
         BtEstadisticas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         BtEstadisticas.setText("Mostrar estadísticas");
+        BtEstadisticas.setEnabled(false);
 
         javax.swing.GroupLayout PanelOperacionesLayout = new javax.swing.GroupLayout(PanelOperaciones);
         PanelOperaciones.setLayout(PanelOperacionesLayout);
